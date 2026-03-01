@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>株式会社YUNO | 埼玉の注文住宅</title>
-    <meta name="description" content="あなたのお家づくり、その先の人生を助けます。埼玉県さいたま市を拠点とする注文住宅会社YUNO。製販一体の体制で性能・デザイン・コストすべてに妥協しない、世界にひとつの住まいを。">
+    <title>株式会社YUNO HOME | 埼玉の注文住宅</title>
+    <meta name="description" content="あなたのお家づくり、その先の人生を助けます。埼玉県さいたま市を拠点とする注文住宅会社YUNO HOME。製販一体の体制で性能・デザイン・コストすべてに妥協しない、世界にひとつの住まいを。">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -38,7 +38,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ─── Typography ─── */
         .font-serif  { font-family: 'Noto Serif JP', serif; }
         .font-en     { font-family: 'Cormorant Garamond', serif; }
 
@@ -85,130 +84,134 @@
         #hero::before {
             content: '';
             position: absolute; inset: 0;
-            background: linear-gradient(
-                135deg,
-                rgba(26,26,26,0.72) 0%,
-                rgba(26,26,26,0.35) 60%,
-                rgba(26,26,26,0.15) 100%
-            );
-        }
-        .hero-line {
-            display: block;
-            width: 1px;
-            height: 80px;
-            background: rgba(255,255,255,0.4);
-            margin: 0 auto;
+            background: linear-gradient(135deg,rgba(26,26,26,0.72) 0%,rgba(26,26,26,0.35) 60%,rgba(26,26,26,0.15) 100%);
         }
 
-        /* ─── Divider ─── */
-        .divider {
-            display: flex; align-items: center; gap: 1.5rem;
-        }
-        .divider::before, .divider::after {
-            content: ''; flex: 1;
-            height: 1px; background: var(--color-line);
-        }
+        .hero-line { display:block; width:1px; height:80px; background:rgba(255,255,255,0.4); margin:0 auto; }
 
-        /* ─── Reveal ─── */
+        .divider { display:flex; align-items:center; gap:1.5rem; }
+        .divider::before, .divider::after { content:''; flex:1; height:1px; background:var(--color-line); }
+
         .reveal {
             opacity: 0;
             transform: translateY(32px);
-            transition: opacity 0.9s cubic-bezier(.22,1,.36,1),
-                        transform 0.9s cubic-bezier(.22,1,.36,1);
+            transition: opacity 0.9s cubic-bezier(.22,1,.36,1), transform 0.9s cubic-bezier(.22,1,.36,1);
         }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal.active { opacity:1; transform:translateY(0); }
 
-        /* ─── Feature card ─── */
-        .feat-card {
-            border-top: 1px solid var(--color-line);
-            padding-top: 2rem;
-            transition: border-color 0.3s;
-        }
-        .feat-card:hover { border-color: var(--color-warm); }
+        .feat-card { border-top:1px solid var(--color-line); padding-top:2rem; transition:border-color 0.3s; }
+        .feat-card:hover { border-color:var(--color-warm); }
 
-        /* ─── Gallery hover ─── */
-        .gal-item { overflow: hidden; }
-        .gal-item img {
-            transition: transform 0.7s cubic-bezier(.22,1,.36,1);
-        }
-        .gal-item:hover img { transform: scale(1.06); }
+        .gal-item { overflow:hidden; }
+        .gal-item img { transition:transform 0.7s cubic-bezier(.22,1,.36,1); }
+        .gal-item:hover img { transform:scale(1.06); }
 
-        /* ─── Service card ─── */
-        .service-card {
-            position: relative; overflow: hidden;
-        }
-        .service-card::after {
-            content: '';
-            position: absolute; inset: 0;
-            background: linear-gradient(to top, rgba(26,26,26,0.85) 0%, rgba(26,26,26,0) 55%);
-        }
-        .service-card img {
-            transition: transform 0.8s cubic-bezier(.22,1,.36,1);
-        }
-        .service-card:hover img { transform: scale(1.05); }
-        .service-card-body { position: relative; z-index: 1; }
+        .service-card { position:relative; overflow:hidden; }
+        .service-card::after { content:''; position:absolute; inset:0; background:linear-gradient(to top,rgba(26,26,26,0.85) 0%,rgba(26,26,26,0) 55%); }
+        .service-card img { transition:transform 0.8s cubic-bezier(.22,1,.36,1); }
+        .service-card:hover img { transform:scale(1.05); }
+        .service-card-body { position:relative; z-index:1; }
 
-        /* ─── Scroll indicator ─── */
         @keyframes scrollDown {
-            0%   { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(12px); opacity: 0; }
+            0%   { transform:translateY(0); opacity:1; }
+            100% { transform:translateY(12px); opacity:0; }
         }
-        .scroll-dot { animation: scrollDown 1.6s ease-in-out infinite; }
+        .scroll-dot { animation:scrollDown 1.6s ease-in-out infinite; }
 
-        /* ─── CTA button ─── */
         .btn-primary {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--color-warm);
-            color: #fff;
-            font-size: 0.8rem;
-            letter-spacing: 0.2em;
-            font-family: 'Noto Sans JP', sans-serif;
-            font-weight: 500;
-            transition: background 0.3s;
+            display:inline-block; padding:1rem 2.5rem;
+            background:var(--color-warm); color:#fff;
+            font-size:0.8rem; letter-spacing:0.2em;
+            font-family:'Noto Sans JP',sans-serif; font-weight:500;
+            transition:background 0.3s;
         }
-        .btn-primary:hover { background: var(--color-warm-d); }
+        .btn-primary:hover { background:var(--color-warm-d); }
 
         .btn-outline {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            border: 1px solid #fff;
-            color: #fff;
-            font-size: 0.8rem;
-            letter-spacing: 0.2em;
-            font-family: 'Noto Sans JP', sans-serif;
-            font-weight: 400;
-            transition: background 0.3s, color 0.3s;
+            display:inline-block; padding:1rem 2.5rem;
+            border:1px solid #fff; color:#fff;
+            font-size:0.8rem; letter-spacing:0.2em;
+            font-family:'Noto Sans JP',sans-serif; font-weight:400;
+            transition:background 0.3s, color 0.3s;
         }
-        .btn-outline:hover { background: #fff; color: var(--color-ink); }
+        .btn-outline:hover { background:#fff; color:var(--color-ink); }
 
         .btn-outline-dark {
-            display: inline-block;
-            padding: 0.9rem 2.2rem;
-            border: 1px solid var(--color-ink);
-            color: var(--color-ink);
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-            font-family: 'Noto Sans JP', sans-serif;
-            font-weight: 400;
-            transition: background 0.3s, color 0.3s;
+            display:inline-block; padding:0.9rem 2.2rem;
+            border:1px solid var(--color-ink); color:var(--color-ink);
+            font-size:0.75rem; letter-spacing:0.2em;
+            font-family:'Noto Sans JP',sans-serif; font-weight:400;
+            transition:background 0.3s, color 0.3s;
         }
-        .btn-outline-dark:hover { background: var(--color-ink); color: #fff; }
+        .btn-outline-dark:hover { background:var(--color-ink); color:#fff; }
 
-        /* ─── Number accent ─── */
         .num-accent {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 5rem;
-            font-weight: 300;
-            line-height: 1;
-            color: var(--color-line);
+            font-family:'Cormorant Garamond',serif;
+            font-size:5rem; font-weight:300; line-height:1;
+            color:var(--color-line);
         }
 
-        /* ─── Mobile menu ─── */
-        #mobile-menu {
-            background: var(--color-bg);
-            border-top: 1px solid var(--color-line);
+        #mobile-menu { background:var(--color-bg); border-top:1px solid var(--color-line); }
+
+        /* ─── Modal ─── */
+        #modal-overlay {
+            display:none;
+            position:fixed; inset:0; z-index:200;
+            background:rgba(26,26,26,0.6);
+            backdrop-filter:blur(4px);
+            overflow-y:auto;
+            padding:2rem 1rem;
         }
+        #modal-overlay.open { display:flex; align-items:flex-start; justify-content:center; }
+
+        #modal-box {
+            background:#fff;
+            width:100%; max-width:760px;
+            margin:auto;
+            position:relative;
+        }
+
+        /* Form elements */
+        .form-label {
+            display:block; font-size:0.75rem;
+            letter-spacing:0.1em; margin-bottom:0.4rem;
+            color:var(--color-stone);
+        }
+        .form-label .req {
+            display:inline-block; font-size:0.6rem;
+            background:var(--color-warm); color:#fff;
+            padding:0.1rem 0.35rem; margin-left:0.4rem;
+            vertical-align:middle; letter-spacing:0.05em;
+        }
+        .form-input {
+            width:100%; border:1px solid var(--color-line);
+            padding:0.7rem 0.9rem; font-size:0.85rem;
+            font-family:'Noto Sans JP',sans-serif;
+            outline:none; transition:border-color 0.2s;
+            background:#faf9f7;
+        }
+        .form-input:focus { border-color:var(--color-warm); background:#fff; }
+        .form-input.error { border-color:#e53e3e; }
+
+        .check-group { display:flex; flex-wrap:wrap; gap:0.5rem 1.2rem; }
+        .check-item { display:flex; align-items:center; gap:0.4rem; cursor:pointer; font-size:0.8rem; }
+        .check-item input[type="checkbox"] { accent-color:var(--color-warm); width:1rem; height:1rem; }
+
+        .file-drop {
+            border:1px dashed var(--color-line);
+            background:#faf9f7; padding:1.5rem;
+            text-align:center; cursor:pointer;
+            transition:border-color 0.2s, background 0.2s;
+        }
+        .file-drop:hover { border-color:var(--color-warm); background:#fff8ee; }
+        .file-drop input[type="file"] { display:none; }
+
+        .error-msg { font-size:0.7rem; color:#e53e3e; margin-top:0.25rem; display:none; }
+        .error-msg.show { display:block; }
+
+        /* Success screen */
+        #form-success { display:none; }
+        #form-success.show { display:flex; }
     </style>
 </head>
 <body>
@@ -218,21 +221,21 @@
 ══════════════════════════════════════ -->
 <header id="header" class="py-5 px-6 lg:px-12">
     <div class="flex justify-between items-center">
-        <!-- Logo -->
-        <a href="#home" class="font-en text-2xl tracking-[0.25em] text-white" id="logo">YUNO</a>
+        <a href="#home" class="font-en tracking-[0.2em] text-white text-xl leading-tight" id="logo">
+            YUNO HOME
+        </a>
 
-        <!-- Desktop Nav -->
-        <nav class="hidden md:flex items-center gap-8">
+        <nav class="hidden md:flex items-center gap-6">
             <a href="#concept" class="text-xs tracking-[0.2em] text-white/80 hover:text-white transition">家づくり</a>
             <a href="#service" class="text-xs tracking-[0.2em] text-white/80 hover:text-white transition">事業案内</a>
             <a href="#works"   class="text-xs tracking-[0.2em] text-white/80 hover:text-white transition">デザイン</a>
             <a href="#events"  class="text-xs tracking-[0.2em] text-white/80 hover:text-white transition">イベント</a>
             <a href="#company" class="text-xs tracking-[0.2em] text-white/80 hover:text-white transition">会社案内</a>
             <div class="w-px h-4 bg-white/30"></div>
+            <button onclick="openModal()" class="text-xs tracking-[0.15em] px-4 py-2 border border-white/60 text-white hover:bg-white hover:text-[var(--color-ink)] transition" id="nav-doc-btn">資料請求</button>
             <a href="#events" class="btn-primary text-xs py-2 px-5">イベント予約</a>
         </nav>
 
-        <!-- Hamburger -->
         <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-1" aria-label="メニュー">
             <span class="block w-6 h-px bg-white transition-all"></span>
             <span class="block w-6 h-px bg-white transition-all"></span>
@@ -251,10 +254,161 @@
         </div>
         <div class="mt-6 flex flex-col gap-3">
             <a href="#events" class="btn-primary text-center text-xs">イベント予約</a>
-            <a href="#events" class="btn-outline-dark text-center text-xs">資料請求</a>
+            <button onclick="openModal()" class="btn-outline-dark text-center text-xs w-full">資料請求</button>
         </div>
     </div>
 </header>
+
+<!-- ══════════════════════════════════════
+     MODAL: 資料請求フォーム
+══════════════════════════════════════ -->
+<div id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div id="modal-box">
+
+        <!-- Header -->
+        <div class="bg-[var(--color-ink)] px-8 py-7 flex justify-between items-center">
+            <div>
+                <p class="label text-white/50 mb-1">Document Request</p>
+                <h2 id="modal-title" class="font-serif text-white text-2xl font-semibold">資料請求フォーム</h2>
+            </div>
+            <button onclick="closeModal()" class="text-white/50 hover:text-white transition text-2xl leading-none" aria-label="閉じる">&times;</button>
+        </div>
+
+        <!-- Form -->
+        <form id="request-form" novalidate class="px-8 py-10 space-y-7">
+
+            <!-- 氏名 -->
+            <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                    <label class="form-label">氏名<span class="req">必須</span></label>
+                    <input type="text" id="f-name" class="form-input" placeholder="山田 太郎">
+                    <p class="error-msg" id="err-name">氏名を入力してください</p>
+                </div>
+                <div>
+                    <label class="form-label">フリガナ<span class="req">必須</span></label>
+                    <input type="text" id="f-kana" class="form-input" placeholder="ヤマダ タロウ">
+                    <p class="error-msg" id="err-kana">フリガナを入力してください</p>
+                </div>
+            </div>
+
+            <!-- メール -->
+            <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                    <label class="form-label">メールアドレス<span class="req">必須</span></label>
+                    <input type="email" id="f-email" class="form-input" placeholder="example@email.com">
+                    <p class="error-msg" id="err-email">正しいメールアドレスを入力してください</p>
+                </div>
+                <div>
+                    <label class="form-label">確認用メールアドレス<span class="req">必須</span></label>
+                    <input type="email" id="f-email2" class="form-input" placeholder="example@email.com">
+                    <p class="error-msg" id="err-email2">メールアドレスが一致しません</p>
+                </div>
+            </div>
+
+            <!-- 電話 / 郵便番号 -->
+            <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                    <label class="form-label">電話番号<span class="req">必須</span></label>
+                    <input type="tel" id="f-tel" class="form-input" placeholder="090-0000-0000">
+                    <p class="error-msg" id="err-tel">電話番号を入力してください</p>
+                </div>
+                <div>
+                    <label class="form-label">郵便番号</label>
+                    <input type="text" id="f-zip" class="form-input" placeholder="000-0000">
+                </div>
+            </div>
+
+            <!-- 住所 -->
+            <div>
+                <label class="form-label">住所</label>
+                <input type="text" id="f-addr" class="form-input" placeholder="埼玉県さいたま市〇〇区〇〇町1-2-3">
+            </div>
+
+            <hr style="border-color:var(--color-line);">
+
+            <!-- 建築予定地 -->
+            <div>
+                <label class="form-label">建築予定地について<span class="req">必須</span></label>
+                <div class="check-group mt-2" id="f-land">
+                    <label class="check-item"><input type="checkbox" name="land" value="所有・建て替えを検討している"> 所有・建て替えを検討している</label>
+                    <label class="check-item"><input type="checkbox" name="land" value="購入予定地が決定している"> 購入予定地が決定している</label>
+                    <label class="check-item"><input type="checkbox" name="land" value="現在探している"> 現在探している</label>
+                    <label class="check-item"><input type="checkbox" name="land" value="未定"> 未定</label>
+                </div>
+                <p class="error-msg" id="err-land">1つ以上選択してください</p>
+            </div>
+
+            <!-- 知ったきっかけ -->
+            <div>
+                <label class="form-label">当社を、どちらでお知りになりましたか？<span class="req">必須</span></label>
+                <p class="text-xs text-[var(--color-stone)] mb-2">※複数選択可能です</p>
+                <div class="check-group" id="f-from">
+                    <label class="check-item"><input type="checkbox" name="from" value="Instagram広告"> Instagram広告</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="Facebook広告"> Facebook広告</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="TikTok広告"> TikTok広告</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="その他WEB広告"> その他WEB広告</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="YUNO HOME Instagram"> YUNO HOME Instagram</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="YUNO HOME YouTube"> YUNO HOME YouTube</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="YUNO HOME TikTok"> YUNO HOME TikTok</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="ネット検索"> ネット検索</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="スーモ"> スーモ</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="知人の紹介"> 知人の紹介</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="その他"> その他</label>
+                </div>
+                <p class="error-msg" id="err-from">1つ以上選択してください</p>
+            </div>
+
+            <hr style="border-color:var(--color-line);">
+
+            <!-- 添付写真 -->
+            <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                    <label class="form-label">添付写真①</label>
+                    <div class="file-drop" onclick="document.getElementById('f-photo1').click()" id="drop1">
+                        <input type="file" id="f-photo1" accept="image/*" onchange="showFileName('f-photo1','drop1-name')">
+                        <i class="fas fa-image text-2xl text-[var(--color-line)] mb-2"></i>
+                        <p class="text-xs text-[var(--color-stone)]">クリックして画像を選択</p>
+                        <p class="text-xs text-[var(--color-warm)] mt-1" id="drop1-name"></p>
+                    </div>
+                </div>
+                <div>
+                    <label class="form-label">添付写真②</label>
+                    <div class="file-drop" onclick="document.getElementById('f-photo2').click()" id="drop2">
+                        <input type="file" id="f-photo2" accept="image/*" onchange="showFileName('f-photo2','drop2-name')">
+                        <i class="fas fa-image text-2xl text-[var(--color-line)] mb-2"></i>
+                        <p class="text-xs text-[var(--color-stone)]">クリックして画像を選択</p>
+                        <p class="text-xs text-[var(--color-warm)] mt-1" id="drop2-name"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="pt-2">
+                <button type="submit" class="btn-primary w-full text-center text-sm py-4 tracking-widest">
+                    送信する
+                </button>
+                <p class="text-xs text-[var(--color-stone)] text-center mt-3">
+                    ご入力いただいた個人情報は、資料請求・お問い合わせ対応のみに使用します。
+                </p>
+            </div>
+        </form>
+
+        <!-- 完了画面 -->
+        <div id="form-success" class="px-8 py-20 flex-col items-center justify-center text-center">
+            <div class="w-16 h-16 rounded-full bg-[var(--color-bg2)] flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-check text-2xl text-[var(--color-warm)]"></i>
+            </div>
+            <p class="label mb-3">Thank you</p>
+            <h3 class="font-serif text-2xl font-semibold mb-4">送信が完了しました</h3>
+            <p class="text-sm text-[var(--color-stone)] leading-loose mb-8">
+                資料請求ありがとうございます。<br>
+                ご登録いただいたメールアドレス宛に確認メールをお送りします。<br>
+                数日以内に担当者よりご連絡いたします。
+            </p>
+            <button onclick="closeModal()" class="btn-outline-dark">閉じる</button>
+        </div>
+    </div>
+</div>
 
 <main>
 
@@ -265,21 +419,19 @@
     <div id="hero" class="flex flex-col justify-center items-start px-8 md:px-20 lg:px-32">
         <div class="relative z-10">
             <p class="label text-white/70 mb-6 reveal">Saitama Custom Home Builder</p>
-            <h1 class="font-serif text-white leading-snug mb-6 reveal" style="font-size: clamp(2rem, 5vw, 3.8rem); font-weight: 400; transition-delay: 120ms;">
+            <h1 class="font-serif text-white leading-snug mb-6 reveal" style="font-size:clamp(2rem,5vw,3.8rem);font-weight:400;transition-delay:120ms;">
                 あなたのお家づくり、<br>その先の人生を<br>助けます。
             </h1>
-            <p class="text-white/70 text-sm tracking-widest mb-10 reveal" style="transition-delay: 240ms;">
+            <p class="text-white/70 text-sm tracking-widest mb-10 reveal" style="transition-delay:240ms;">
                 性能とデザインを極めた、埼玉の注文住宅
             </p>
-            <div class="flex flex-wrap gap-4 reveal" style="transition-delay: 360ms;">
+            <div class="flex flex-wrap gap-4 reveal" style="transition-delay:360ms;">
                 <a href="#concept" class="btn-primary">家づくりを知る</a>
                 <a href="#events"  class="btn-outline">イベントに参加する</a>
             </div>
         </div>
-
-        <!-- Scroll indicator -->
         <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3">
-            <span class="label text-white/50" style="font-size: 0.6rem;">SCROLL</span>
+            <span class="label text-white/50" style="font-size:0.6rem;">SCROLL</span>
             <div class="w-px h-10 bg-white/20 relative overflow-hidden">
                 <div class="scroll-dot w-full h-1/2 bg-white/60 absolute top-0"></div>
             </div>
@@ -307,23 +459,20 @@
 <section id="features" class="py-28 bg-[var(--color-bg)]">
     <div class="container mx-auto px-6 lg:px-12">
         <div class="mb-16 reveal">
-            <p class="label mb-3">Why YUNO</p>
+            <p class="label mb-3">Why YUNO HOME</p>
             <h2 class="section-en">Philosophy</h2>
         </div>
         <div class="grid md:grid-cols-3 gap-12 md:gap-8">
-            <!-- 01 -->
             <div class="feat-card reveal">
                 <div class="num-accent mb-4">01</div>
                 <h3 class="font-serif text-xl font-semibold mb-3">製販一体の知識と経験</h3>
                 <p class="text-sm leading-loose text-[var(--color-stone)]">全工程を知る代表が叶える、ストレスフリーな家づくり。設計から現場の隅々までダイレクトに反映し、理想を最短距離で実現します。</p>
             </div>
-            <!-- 02 -->
             <div class="feat-card reveal" style="transition-delay:150ms;">
                 <div class="num-accent mb-4">02</div>
                 <h3 class="font-serif text-xl font-semibold mb-3">性能 × デザインの両立</h3>
                 <p class="text-sm leading-loose text-[var(--color-stone)]">快適な暮らしを約束する高い住宅性能と、あなたの感性に響く唯一無二のデザインを両立。妥協しない住まいを約束します。</p>
             </div>
-            <!-- 03 -->
             <div class="feat-card reveal" style="transition-delay:300ms;">
                 <div class="num-accent mb-4">03</div>
                 <h3 class="font-serif text-xl font-semibold mb-3">徹底したコスト管理</h3>
@@ -334,16 +483,13 @@
 </section>
 
 <!-- ══════════════════════════════════════
-     CONCEPT (全幅 split)
+     CONCEPT
 ══════════════════════════════════════ -->
 <section id="concept" class="bg-[var(--color-bg2)]">
     <div class="lg:grid lg:grid-cols-2 min-h-[80vh]">
-        <!-- Image -->
         <div class="gal-item h-72 lg:h-auto">
-            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2074&auto=format&fit=crop"
-                 alt="美しいキッチン" class="w-full h-full object-cover">
+            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2074&auto=format&fit=crop" alt="美しいキッチン" class="w-full h-full object-cover">
         </div>
-        <!-- Text -->
         <div class="flex flex-col justify-center px-8 md:px-16 py-20 reveal">
             <p class="label mb-5">Our Concept</p>
             <h2 class="font-serif text-3xl md:text-4xl font-semibold leading-snug mb-8">
@@ -353,15 +499,16 @@
                 家は、ただ雨風をしのぐ箱ではありません。一日の始まりに活力を得て、一日の終わりに心から安らげる場所。私たちは「活力の源」となる住まいを通じて、お客様の日々を、人生を、より豊かに祐けたいと願っています。
             </p>
             <div class="border-l-2 border-[var(--color-warm)] pl-6 mb-10">
-                <p class="font-en text-4xl font-light text-[var(--color-warm)] tracking-widest mb-2">YUNO</p>
+                <p class="font-en text-4xl font-light text-[var(--color-warm)] tracking-widest mb-2">YUNO HOME</p>
                 <p class="text-xs leading-relaxed text-[var(--color-stone)]">
                     <b class="text-[var(--color-warm)] font-medium">YU（祐）</b> — 専門知識と経験でお客様を「祐ける」存在へ<br>
                     <b class="text-[var(--color-warm)] font-medium">NO（結）</b> — お客様・作り手・ご家族の絆を固く「結ぶ」存在へ<br>
                     <b class="text-[var(--color-warm)] font-medium">You Only</b> — あなただけのオンリーワン住宅を
                 </p>
             </div>
-            <div>
-                <a href="#events" class="btn-outline-dark">お問い合わせ</a>
+            <div class="flex gap-4">
+                <button onclick="openModal()" class="btn-primary text-xs">資料請求する</button>
+                <a href="#events" class="btn-outline-dark text-xs">相談会に参加</a>
             </div>
         </div>
     </div>
@@ -376,9 +523,8 @@
             <p class="label mb-3">What We Do</p>
             <h2 class="section-en">Services</h2>
         </div>
-        <div class="service-card reveal" style="max-height: 600px;">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop"
-                 alt="注文住宅" class="w-full h-[520px] object-cover">
+        <div class="service-card reveal" style="max-height:600px;">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="注文住宅" class="w-full h-[520px] object-cover">
             <div class="service-card-body absolute bottom-0 left-0 right-0 p-10 md:p-16">
                 <p class="label text-white/60 mb-3">Custom Home Building</p>
                 <h3 class="font-serif text-white text-4xl md:text-5xl font-semibold mb-4">注文住宅事業</h3>
@@ -386,7 +532,7 @@
                     お客様のライフスタイルを丁寧にヒアリングし、設計から施工まで一貫してお届けします。<br>
                     性能・デザイン・コストすべてに妥協しない、世界にひとつだけの住まいを実現します。
                 </p>
-                <a href="#events" class="btn-primary inline-block">詳しく相談する</a>
+                <button onclick="openModal()" class="btn-primary inline-block">資料請求する</button>
             </div>
         </div>
     </div>
@@ -402,30 +548,28 @@
                 <p class="label mb-3">Our Works</p>
                 <h2 class="section-en">Gallery</h2>
             </div>
-            <p class="text-xs tracking-widest text-[var(--color-stone)] mt-4 md:mt-0">YUNOが提案する、理想の住まいのカタチ</p>
+            <p class="text-xs tracking-widest text-[var(--color-stone)] mt-4 md:mt-0">YUNO HOMEが提案する、理想の住まいのカタチ</p>
         </div>
-
-        <!-- Masonry-like grid -->
         <div class="grid grid-cols-2 md:grid-cols-12 gap-3">
-            <div class="col-span-2 md:col-span-7 gal-item reveal" style="height: 420px;">
+            <div class="col-span-2 md:col-span-7 gal-item reveal" style="height:420px;">
                 <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1617103995724-5c0483804fce?q=80&w=1964&auto=format&fit=crop" alt="作品1">
             </div>
-            <div class="col-span-1 md:col-span-5 gal-item reveal" style="height: 420px; transition-delay:100ms;">
+            <div class="col-span-1 md:col-span-5 gal-item reveal" style="height:420px;transition-delay:100ms;">
                 <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=1964&auto=format&fit=crop" alt="作品2">
             </div>
-            <div class="col-span-1 md:col-span-4 gal-item reveal" style="height: 300px; transition-delay:150ms;">
+            <div class="col-span-1 md:col-span-4 gal-item reveal" style="height:300px;transition-delay:150ms;">
                 <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=2080&auto=format&fit=crop" alt="作品3">
             </div>
-            <div class="col-span-1 md:col-span-4 gal-item reveal" style="height: 300px; transition-delay:200ms;">
+            <div class="col-span-1 md:col-span-4 gal-item reveal" style="height:300px;transition-delay:200ms;">
                 <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2070&auto=format&fit=crop" alt="作品4">
             </div>
-            <div class="col-span-2 md:col-span-4 gal-item reveal" style="height: 300px; transition-delay:250ms;">
+            <div class="col-span-2 md:col-span-4 gal-item reveal" style="height:300px;transition-delay:250ms;">
                 <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" alt="作品5">
             </div>
-            <div class="col-span-1 md:col-span-5 gal-item reveal" style="height: 300px; transition-delay:300ms;">
+            <div class="col-span-1 md:col-span-5 gal-item reveal" style="height:300px;transition-delay:300ms;">
                 <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" alt="作品6">
             </div>
-            <div class="col-span-1 md:col-span-7 gal-item reveal" style="height: 300px; transition-delay:350ms;">
+            <div class="col-span-1 md:col-span-7 gal-item reveal" style="height:300px;transition-delay:350ms;">
                 <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1980&auto=format&fit=crop" alt="作品7">
             </div>
         </div>
@@ -440,11 +584,9 @@
         <div class="mb-16 reveal">
             <p class="label mb-3">Events &amp; Seminars</p>
             <h2 class="section-en">Events</h2>
-            <p class="text-xs text-[var(--color-stone)] tracking-widest mt-3">YUNOの家づくりを体感できるイベントです</p>
+            <p class="text-xs text-[var(--color-stone)] tracking-widest mt-3">YUNO HOMEの家づくりを体感できるイベントです</p>
         </div>
-
         <div class="space-y-px">
-            <!-- Event 1 -->
             <div class="bg-white p-8 md:p-10 flex flex-col sm:flex-row items-start sm:items-center gap-8 reveal group">
                 <div class="flex-shrink-0 text-center w-20">
                     <p class="label">2026.08</p>
@@ -457,15 +599,13 @@
                     <h3 class="font-serif text-lg font-semibold mb-2">後悔しないための家づくり個別相談会</h3>
                     <p class="text-xs text-[var(--color-stone)] leading-loose">
                         <span class="mr-4"><i class="far fa-clock mr-1"></i>10:00〜17:00（予約制・参加無料）</span><br>
-                        <span><i class="fas fa-map-marker-alt mr-1"></i>YUNOショールーム（さいたま市大宮区）</span>
+                        <span><i class="fas fa-map-marker-alt mr-1"></i>YUNO HOMEショールーム（さいたま市大宮区）</span>
                     </p>
                 </div>
                 <div class="flex-shrink-0">
                     <a href="#" class="btn-primary text-xs">予約する</a>
                 </div>
             </div>
-
-            <!-- Event 2 (Coming soon) -->
             <div class="bg-white p-8 md:p-10 flex flex-col sm:flex-row items-start sm:items-center gap-8 opacity-50 reveal">
                 <div class="flex-shrink-0 text-center w-20">
                     <p class="label">2026.09</p>
@@ -496,12 +636,10 @@
             <h2 class="section-en">Company</h2>
         </div>
 
-        <!-- CEO Message -->
         <div class="lg:grid lg:grid-cols-12 gap-16 mb-24">
             <div class="lg:col-span-5 mb-10 lg:mb-0 reveal">
                 <div class="gal-item">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop"
-                         alt="代表取締役 佐古 祐太" class="w-full aspect-[4/5] object-cover">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop" alt="代表取締役 佐古 祐太" class="w-full aspect-[4/5] object-cover">
                 </div>
             </div>
             <div class="lg:col-span-7 flex flex-col justify-center reveal" style="transition-delay:150ms;">
@@ -511,12 +649,11 @@
                 <div class="w-8 h-px bg-[var(--color-warm)] mb-8"></div>
                 <p class="text-sm leading-loose text-[var(--color-stone)]">
                     建築士として、また営業・設計・現場監督として、様々なお客様と家づくりに携わってきました。その中で感じたのは、部署間の壁による非効率や情報伝達のロスが、お客様の不安や不満、そして社員のストレスに繋がっているという現実でした。<br><br>
-                    「お客様も、社員も、心から幸せになれる会社をつくりたい」——その一心で株式会社YUNOを設立しました。私の全ての経験と知識を注ぎ込み、関わる全ての人が誇れる家づくりを実現することをお約束します。
+                    「お客様も、社員も、心から幸せになれる会社をつくりたい」——その一心で株式会社YUNO HOMEを設立しました。私の全ての経験と知識を注ぎ込み、関わる全ての人が誇れる家づくりを実現することをお約束します。
                 </p>
             </div>
         </div>
 
-        <!-- Company Info -->
         <div class="reveal">
             <div class="divider mb-10">
                 <span class="label">Company Profile</span>
@@ -524,7 +661,7 @@
             <div class="grid md:grid-cols-2 gap-px bg-[var(--color-line)]">
                 <div class="bg-[var(--color-bg2)] px-6 py-5 flex gap-6">
                     <span class="text-xs tracking-widest text-[var(--color-stone)] w-28 flex-shrink-0 pt-0.5">会社名</span>
-                    <span class="text-sm">株式会社YUNO</span>
+                    <span class="text-sm">株式会社YUNO HOME</span>
                 </div>
                 <div class="bg-[var(--color-bg2)] px-6 py-5 flex gap-6">
                     <span class="text-xs tracking-widest text-[var(--color-stone)] w-28 flex-shrink-0 pt-0.5">設立</span>
@@ -567,16 +704,15 @@
      CTA BAND
 ══════════════════════════════════════ -->
 <section class="py-24 bg-[var(--color-ink)] relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10"
-         style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center;">
-    </div>
+    <div class="absolute inset-0 opacity-10" style="background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2070&auto=format&fit=crop');background-size:cover;background-position:center;"></div>
     <div class="container mx-auto px-6 text-center relative z-10 reveal">
         <p class="label text-white/50 mb-5">First Step</p>
-        <h2 class="font-serif text-white text-3xl md:text-4xl font-semibold mb-4">
-            まずは、ご相談ください。
-        </h2>
+        <h2 class="font-serif text-white text-3xl md:text-4xl font-semibold mb-4">まずは、ご相談ください。</h2>
         <p class="text-white/50 text-xs tracking-widest mb-10">お客様の想いを、丁寧に、じっくりお聞きします。</p>
-        <a href="#events" class="btn-primary">無料相談会に申し込む</a>
+        <div class="flex flex-wrap justify-center gap-4">
+            <button onclick="openModal()" class="btn-primary">資料請求する</button>
+            <a href="#events" class="btn-outline">無料相談会に申し込む</a>
+        </div>
     </div>
 </section>
 
@@ -589,9 +725,9 @@
     <div class="container mx-auto px-6 lg:px-12 py-16">
         <div class="flex flex-col md:flex-row justify-between items-start gap-10">
             <div>
-                <p class="font-en text-2xl tracking-[0.3em] mb-3">YUNO</p>
+                <p class="font-en text-2xl tracking-[0.25em] mb-3">YUNO HOME</p>
                 <p class="text-xs text-white/40 tracking-widest leading-relaxed">
-                    株式会社YUNO<br>
+                    株式会社YUNO HOME<br>
                     〒XXX-XXXX 埼玉県さいたま市（予定）
                 </p>
             </div>
@@ -601,70 +737,137 @@
                 <a href="#works"   class="text-xs tracking-widest text-white/50 hover:text-white transition">デザイン</a>
                 <a href="#events"  class="text-xs tracking-widest text-white/50 hover:text-white transition">イベント</a>
                 <a href="#company" class="text-xs tracking-widest text-white/50 hover:text-white transition">会社案内</a>
+                <button onclick="openModal()" class="text-xs tracking-widest text-white/50 hover:text-white transition">資料請求</button>
             </nav>
         </div>
         <div class="mt-12 pt-8 border-t border-white/10 text-center">
-            <p class="text-xs text-white/30 tracking-widest">&copy; 2026 YUNO Inc. All Rights Reserved.</p>
+            <p class="text-xs text-white/30 tracking-widest">&copy; 2026 YUNO HOME Inc. All Rights Reserved.</p>
         </div>
     </div>
 </footer>
 
 <script>
-    // ── Header scroll state ──
-    const header = document.getElementById('header');
-    const logo   = document.getElementById('logo');
-    const navLinks = header.querySelectorAll('nav a:not(.btn-primary)');
-    const hamburgerLines = document.querySelectorAll('#hamburger span');
+// ── Modal ──
+function openModal() {
+    document.getElementById('modal-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+    document.getElementById('modal-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+}
 
-    function updateHeader() {
-        const scrolled = window.scrollY > 60;
-        header.classList.toggle('scrolled', scrolled);
+// ESCキーで閉じる
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+});
 
-        // Logo color
-        logo.style.color = scrolled ? 'var(--color-ink)' : '#fff';
+// 背景クリックで閉じる
+document.getElementById('modal-overlay').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+});
 
-        // Nav links color
-        navLinks.forEach(a => {
-            a.style.color = scrolled ? 'var(--color-stone)' : 'rgba(255,255,255,0.8)';
-        });
-        navLinks.forEach(a => {
-            a.onmouseenter = () => a.style.color = scrolled ? 'var(--color-ink)' : '#fff';
-            a.onmouseleave = () => a.style.color = scrolled ? 'var(--color-stone)' : 'rgba(255,255,255,0.8)';
-        });
-
-        // Hamburger lines
-        hamburgerLines.forEach(l => {
-            l.style.background = scrolled ? 'var(--color-ink)' : '#fff';
-        });
+// ── ファイル名表示 ──
+function showFileName(inputId, labelId) {
+    const input = document.getElementById(inputId);
+    const label = document.getElementById(labelId);
+    if (input.files && input.files[0]) {
+        label.textContent = input.files[0].name;
     }
+}
 
-    window.addEventListener('scroll', updateHeader, { passive: true });
-    updateHeader();
+// ── フォームバリデーション & 送信 ──
+document.getElementById('request-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let valid = true;
 
-    // ── Mobile menu ──
-    const hamburger   = document.getElementById('hamburger');
-    const mobileMenu  = document.getElementById('mobile-menu');
+    const setError = (fieldId, errId, condition) => {
+        const field = document.getElementById(fieldId);
+        const err   = document.getElementById(errId);
+        if (condition) {
+            field.classList.add('error');
+            err.classList.add('show');
+            valid = false;
+        } else {
+            field.classList.remove('error');
+            err.classList.remove('show');
+        }
+    };
 
-    hamburger.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
+    const name   = document.getElementById('f-name').value.trim();
+    const kana   = document.getElementById('f-kana').value.trim();
+    const email  = document.getElementById('f-email').value.trim();
+    const email2 = document.getElementById('f-email2').value.trim();
+    const tel    = document.getElementById('f-tel').value.trim();
+
+    setError('f-name',   'err-name',   !name);
+    setError('f-kana',   'err-kana',   !kana);
+    setError('f-email',  'err-email',  !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+    setError('f-email2', 'err-email2', email !== email2);
+    setError('f-tel',    'err-tel',    !tel);
+
+    // 建築予定地チェック
+    const landChecked = document.querySelectorAll('input[name="land"]:checked').length > 0;
+    const errLand = document.getElementById('err-land');
+    if (!landChecked) { errLand.classList.add('show'); valid = false; }
+    else              { errLand.classList.remove('show'); }
+
+    // 知ったきっかけチェック
+    const fromChecked = document.querySelectorAll('input[name="from"]:checked').length > 0;
+    const errFrom = document.getElementById('err-from');
+    if (!fromChecked) { errFrom.classList.add('show'); valid = false; }
+    else              { errFrom.classList.remove('show'); }
+
+    if (!valid) return;
+
+    // 送信完了画面へ切替
+    document.getElementById('request-form').style.display = 'none';
+    const success = document.getElementById('form-success');
+    success.classList.add('show');
+    document.getElementById('modal-box').scrollIntoView({ behavior:'smooth' });
+});
+
+// ── Header scroll ──
+const header      = document.getElementById('header');
+const logo        = document.getElementById('logo');
+const navLinks    = header.querySelectorAll('nav a:not(.btn-primary)');
+const navDocBtn   = document.getElementById('nav-doc-btn');
+const hamLines    = document.querySelectorAll('#hamburger span');
+
+function updateHeader() {
+    const scrolled = window.scrollY > 60;
+    header.classList.toggle('scrolled', scrolled);
+    const textColor   = scrolled ? 'var(--color-ink)'   : '#fff';
+    const mutedColor  = scrolled ? 'var(--color-stone)'  : 'rgba(255,255,255,0.8)';
+    const borderColor = scrolled ? 'var(--color-ink)'   : 'rgba(255,255,255,0.6)';
+
+    logo.style.color = textColor;
+    navLinks.forEach(a => { a.style.color = mutedColor; });
+    if (navDocBtn) {
+        navDocBtn.style.borderColor = borderColor;
+        navDocBtn.style.color       = textColor;
+    }
+    hamLines.forEach(l => { l.style.background = textColor; });
+}
+
+window.addEventListener('scroll', updateHeader, { passive:true });
+updateHeader();
+
+// ── Mobile menu ──
+document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+});
+document.querySelectorAll('#mobile-menu a, #mobile-menu button').forEach(el => {
+    el.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden'));
+});
+
+// ── Reveal ──
+const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('active'); io.unobserve(e.target); }
     });
-
-    mobileMenu.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-    });
-
-    // ── Reveal on scroll ──
-    const reveals = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => {
-            if (e.isIntersecting) {
-                e.target.classList.add('active');
-                io.unobserve(e.target);
-            }
-        });
-    }, { threshold: 0.12 });
-
-    reveals.forEach(el => io.observe(el));
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
