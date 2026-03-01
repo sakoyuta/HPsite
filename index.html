@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>株式会社YUNO - 性能とデザインを極めた、埼玉の注文住宅</title>
+    <meta name="description" content="埼玉県さいたま市を拠点とする建築会社YUNOの公式サイト。代表の豊富な経験と製販一体の体制で、性能・デザイン・コストのすべてに妥協しない、あなただけのオンリーワン住宅を実現します。">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Lexend (Headings) & Noto Sans JP (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* カスタムスタイル */
+        html {
+            scroll-padding-top: 80px; /* スムーズスクロール時のヘッダーオフセット */
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #f9fafb; /* Light gray background */
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lexend', sans-serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=2127&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #1a365d; /* Deep Indigo */
+            letter-spacing: 0.05em;
+        }
+        .section-subtitle {
+            font-size: 1rem;
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 4rem;
+            letter-spacing: 0.1em;
+        }
+
+        /* スクロールアニメーション */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* カスタムカラー */
+        .bg-deep-indigo { background-color: #1a365d; }
+        .text-deep-indigo { color: #1a365d; }
+        .border-deep-indigo { border-color: #1a365d; }
+        .hover\:bg-deep-indigo-dark:hover { background-color: #122642; }
+
+        .bg-amber-accent { background-color: #d97706; }
+        .text-amber-accent { color: #d97706; }
+        .border-amber-accent { border-color: #d97706; }
+        .hover\:bg-amber-accent-dark:hover { background-color: #b45309; }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- ヘッダー -->
+    <header id="header" class="bg-white/90 backdrop-blur-md sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-3xl font-bold text-deep-indigo tracking-wider">YUNO</a>
+
+            <!-- デスクトップ用ナビゲーション -->
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="#concept" class="text-gray-600 hover:text-deep-indigo transition duration-300 font-medium">家づくり</a>
+                <a href="#service" class="text-gray-600 hover:text-deep-indigo transition duration-300 font-medium">事業案内</a>
+                <a href="#works" class="text-gray-600 hover:text-deep-indigo transition duration-300 font-medium">デザイン</a>
+                <a href="#events" class="text-gray-600 hover:text-deep-indigo transition duration-300 font-medium">イベント</a>
+                <a href="#company" class="text-gray-600 hover:text-deep-indigo transition duration-300 font-medium">会社案内</a>
+                <div class="border-l h-6 border-gray-300"></div>
+                <a href="#events" class="bg-white border-2 border-deep-indigo text-deep-indigo px-5 py-2 hover:bg-deep-indigo hover:text-white transition duration-300 font-semibold text-sm">資料請求</a>
+                <a href="#events" class="bg-amber-accent border-2 border-amber-accent text-white px-5 py-2 hover:bg-amber-accent-dark transition duration-300 font-semibold text-sm">イベント予約</a>
+            </nav>
+
+            <!-- モバイル用メニューボタン -->
+            <button id="mobile-menu-button" class="md:hidden text-deep-indigo">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- モバイル用メニュー -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <a href="#concept" class="block px-6 py-4 text-gray-600 hover:bg-gray-100 font-medium">家づくり</a>
+            <a href="#service" class="block px-6 py-4 text-gray-600 hover:bg-gray-100 font-medium">事業案内</a>
+            <a href="#works" class="block px-6 py-4 text-gray-600 hover:bg-gray-100 font-medium">デザイン</a>
+            <a href="#events" class="block px-6 py-4 text-gray-600 hover:bg-gray-100 font-medium">イベント</a>
+            <a href="#company" class="block px-6 py-4 text-gray-600 hover:bg-gray-100 font-medium">会社案内</a>
+            <div class="px-6 py-4 border-t space-y-3">
+                 <a href="#events" class="block w-full text-center bg-deep-indigo text-white px-4 py-3 hover:bg-deep-indigo-dark transition duration-300 shadow font-semibold">資料請求</a>
+                 <a href="#events" class="block w-full text-center bg-amber-accent text-white px-4 py-3 hover:bg-amber-accent-dark transition duration-300 shadow font-semibold">イベント予約</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ヒーローセクション -->
+        <section id="home" class="hero-bg h-screen flex items-center text-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl text-left">
+                    <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-4 reveal">
+                        祐<span class="text-lg">（たす）</span>ける想いを、<br>唯一<span class="text-lg">（あなただけ）</span>の住まいに。
+                    </h1>
+                    <p class="text-lg md:text-xl mb-8 reveal" style="transition-delay: 200ms;">性能とデザインを極めた、埼玉の注文住宅。</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 reveal" style="transition-delay: 400ms;">
+                        <a href="#concept" class="bg-white text-deep-indigo px-10 py-4 font-bold text-lg hover:bg-gray-200 transition duration-300 shadow-lg">YUNOの家づくりを知る</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- YUNOが選ばれる理由 -->
+        <section id="features" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center reveal">
+                    <h2 class="section-title">YUNO's Philosophy</h2>
+                    <p class="section-subtitle">なぜ、YUNOは "あなた" と "社員" を幸せにできるのか。</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <!-- 理由 1 -->
+                    <div class="bg-white p-8 border hover:border-amber-accent transition-colors duration-300 reveal">
+                        <img src="https://images.unsplash.com/photo-1542337809-b42157643555?q=80&w=1974&auto=format&fit=crop" alt="設計図と模型" class="w-full h-48 object-cover mb-6">
+                        <h3 class="text-2xl font-bold mb-3 text-deep-indigo">製販一体の知識と経験</h3>
+                        <p class="text-gray-600 leading-relaxed">全工程を知る代表が叶える、ストレスフリーな家づくり。お客様の想いを設計から現場の隅々までダイレクトに反映し、理想を最短距離で実現します。</p>
+                    </div>
+                    <!-- 理由 2 -->
+                    <div class="bg-white p-8 border hover:border-amber-accent transition-colors duration-300 reveal" style="transition-delay: 200ms;">
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop" alt="スタイリッシュな住宅の外観" class="w-full h-48 object-cover mb-6">
+                        <h3 class="text-2xl font-bold mb-3 text-deep-indigo">性能 × デザインの両立</h3>
+                        <p class="text-gray-600 leading-relaxed">快適な暮らしを約束する高い住宅性能と、あなたの感性に響く、唯一無二のデザインを両立。妥協しない住まいを約束します。</p>
+                    </div>
+                    <!-- 理由 3 -->
+                    <div class="bg-white p-8 border hover:border-amber-accent transition-colors duration-300 reveal" style="transition-delay: 400ms;">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1918&auto=format&fit=crop" alt="コスト管理のイメージ" class="w-full h-48 object-cover mb-6">
+                        <h3 class="text-2xl font-bold mb-3 text-deep-indigo">徹底したコスト管理</h3>
+                        <p class="text-gray-600 leading-relaxed">少数精鋭のチームと効率的なワークフローで、無駄なコストを徹底的に削減。浮いた費用は、お客様の「こだわり」に還元します。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 家づくりへの想い -->
+        <section id="concept" class="py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="lg:w-1/2 reveal">
+                        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=2074&auto=format&fit=crop" alt="美しいキッチン" class="shadow-xl">
+                    </div>
+                    <div class="lg:w-1/2 reveal" style="transition-delay: 200ms;">
+                        <h2 class="text-4xl font-bold mb-6 text-deep-indigo">日々の生活から、<br>人々に活力を。</h2>
+                        <p class="mb-6 text-gray-600 leading-relaxed">家は、ただ雨風をしのぐ箱ではありません。一日の始まりに活力を得て、一日の終わりに心から安らげる場所。私たちは、そんな「活力の源」となる住まいを通じて、お客様の日々を、人生を、より豊かに「祐けたい」と願っています。</p>
+                        <div class="border-t-2 border-amber-accent pt-6">
+                           <h3 class="text-2xl font-bold mb-4 text-deep-indigo">YU + NO = YUNO</h3>
+                           <p class="text-gray-600 leading-relaxed"><b class="text-amber-accent">YU (祐):</b> お客様が抱える問題を専門知識と経験で「祐ける（たすける）」存在へ。<br><b class="text-amber-accent">NO (結):</b> お客様と、作り手と、ご家族の絆を固く「結ぶ」存在へ。<br><b class="text-amber-accent">YUNO (You only):</b> あなただけの物語に耳を傾け、世界に一つの「あなた仕様のオンリーワン住宅」を。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 事業案内 -->
+        <section id="service" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center reveal">
+                    <h2 class="section-title">Our Services</h2>
+                    <p class="section-subtitle">あなただけの住まいを、一から創り上げる注文住宅事業</p>
+                </div>
+                <div class="max-w-3xl mx-auto reveal">
+                    <div class="group relative overflow-hidden shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="注文住宅" class="w-full h-96 object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
+                            <h3 class="text-white text-3xl font-bold mb-2">注文住宅事業</h3>
+                            <p class="text-gray-200 text-sm leading-relaxed">お客様の想いとライフスタイルを丁寧にヒアリングし、設計から施工まで一貫してお届けします。性能・デザイン・コストすべてに妥協しない、世界にひとつだけの住まいを実現します。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- デザインギャラリー -->
+        <section id="works" class="py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center reveal">
+                    <h2 class="section-title">Design Gallery</h2>
+                    <p class="section-subtitle">YUNOが提案する、理想の住まいのカタチ。</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                    <div class="grid gap-2 reveal">
+                        <div><img class="h-auto max-w-full shadow-md transition-transform duration-300 hover:scale-105" src="https://images.unsplash.com/photo-1617103995724-5c0483804fce?q=80&w=1964&auto=format&fit=crop" alt="デザインギャラリーの画像1"></div>
+                        <div><img class="h-auto max-w-full shadow-md transition-transform duration-300 hover:scale-105" src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=2080&auto=format&fit=crop" alt="デザインギャラリーの画像2"></div>
+                    </div>
+                    <div class="grid gap-2 reveal" style="transition-delay: 100ms;">
+                        <div><img class="h-auto max-w-full shadow-md transition-transform duration-300 hover:scale-105" src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=1964&auto=format&fit=crop" alt="デザインギャラリーの画像3"></div>
+                        <div><img class="h-auto max-w-full shadow-md transition-transform duration-300 hover:scale-105" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" alt="デザインギャラリーの画像4"></div>
+                    </div>
+                    <div class="grid gap-2 reveal" style="transition-delay: 200ms;">
+                        <div><img class="h-auto max-w-full shadow-md transition-transform duration-300 hover:scale-105" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2070&auto=format&fit=crop" alt="デザインギャラリーの画像5"></div>
+                        <div><img class="h-auto max-w-full shadow-md transition-transform duration-300 hover:scale-105" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" alt="デザインギャラリーの画像6"></div>
+                    </div>
+                     <div class="grid gap-2 reveal" style="transition-delay: 300ms;">
+                        <div><img class="h-auto max-w-full shadow-md transition-transform duration-300 hover:scale-105" src="https://images.unsplash.com/photo-1593436431945-32b01a8d0597?q=80&w=1964&auto=format&fit=crop" alt="デザインギャラリーの画像7"></div>
+                        <div><img class="h-auto max-w-full shadow-md transition-transform duration-300 hover:scale-105" src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?q=80&w=1980&auto=format&fit=crop" alt="デザインギャラリーの画像8"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- イベント情報 -->
+        <section id="events" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center reveal">
+                    <h2 class="section-title">Events</h2>
+                    <p class="section-subtitle">完成見学会や家づくり相談会など、YUNOの家づくりを体感できるイベントです。</p>
+                </div>
+                <div class="max-w-4xl mx-auto space-y-8">
+                    <!-- イベントカード 1 -->
+                    <div class="bg-white border p-6 flex flex-col sm:flex-row items-center gap-6 reveal">
+                        <div class="bg-deep-indigo text-white text-center p-4 w-full sm:w-auto flex-shrink-0">
+                            <p class="text-lg font-bold font-sans">8月</p>
+                            <p class="text-5xl font-bold leading-none">10</p>
+                            <p class="text-sm font-semibold font-sans">土</p>
+                        </div>
+                        <div class="flex-grow text-center sm:text-left">
+                            <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5">相談会</span>
+                            <h3 class="text-xl font-bold my-2">【参加無料】後悔しないための家づくり個別相談会</h3>
+                            <p class="text-gray-600 text-sm"><i class="fas fa-clock w-4 text-center mr-1"></i>10:00〜17:00 (予約制)</p>
+                            <p class="text-gray-600 text-sm"><i class="fas fa-map-marker-alt w-4 text-center mr-1"></i>YUNOショールーム（さいたま市大宮区）</p>
+                        </div>
+                        <div class="flex-shrink-0 mt-4 sm:mt-0">
+                            <a href="#" class="bg-amber-accent text-white px-8 py-3 font-bold hover:bg-amber-accent-dark transition duration-300 inline-block">このイベントに予約する</a>
+                        </div>
+                    </div>
+                    <!-- イベントカード 2 (準備中) -->
+                    <div class="bg-white border p-6 flex flex-col sm:flex-row items-center gap-6 opacity-60 reveal">
+                        <div class="bg-gray-500 text-white text-center p-4 w-full sm:w-auto flex-shrink-0">
+                            <p class="text-lg font-bold font-sans">9月</p>
+                            <p class="text-5xl font-bold leading-none">14</p>
+                            <p class="text-sm font-semibold font-sans">土</p>
+                        </div>
+                        <div class="flex-grow text-center sm:text-left">
+                            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5">見学会</span>
+                            <h3 class="text-xl font-bold my-2">【開催予定】デザイン住宅 完成見学会</h3>
+                             <p class="text-gray-600 text-sm"><i class="fas fa-map-marker-alt w-4 text-center mr-1"></i>詳細は後日公開いたします</p>
+                        </div>
+                        <div class="flex-shrink-0 mt-4 sm:mt-0">
+                            <span class="bg-gray-400 text-white px-8 py-3 font-bold cursor-not-allowed">準備中</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 会社案内 -->
+        <section id="company" class="py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center reveal">
+                    <h2 class="section-title">Company</h2>
+                    <p class="section-subtitle">関わるすべての人が、誇れる仕事を。</p>
+                </div>
+
+                <!-- 代表挨拶 -->
+                <div class="bg-white p-8 md:p-12 mb-16 flex flex-col md:flex-row items-center gap-10 reveal">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop" alt="代表取締役 佐古 祐太" class="w-48 h-48 md:w-64 md:h-64 object-cover flex-shrink-0 shadow-lg">
+                    <div class="text-center md:text-left md:pl-8">
+                        <p class="text-amber-accent font-semibold tracking-widest">MESSAGE FROM CEO</p>
+                        <h3 class="text-3xl font-bold my-2 text-deep-indigo">代表取締役 佐古 祐太</h3>
+                        <p class="text-gray-600 leading-relaxed max-w-lg">建築士として、また営業、設計、現場監督として、様々なお客様と家づくりに携わってきました。その中で感じたのは、部署間の壁による非効率や情報伝達のロスが、お客様の不安や不満、そして社員のストレスに繋がっているという現実でした。「お客様も、社員も、心から幸せになれる会社をつくりたい」。その一心で株式会社YUNOを設立しました。私の全ての経験と知識を注ぎ込み、関わる全ての人が誇れる家づくりを実現することをお約束します。</p>
+                    </div>
+                </div>
+
+                <!-- 会社概要 -->
+                <div class="bg-white p-8 border reveal">
+                    <h3 class="text-2xl font-bold mb-6 text-center text-deep-indigo">会社概要</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <tbody>
+                                <tr class="border-b"><th class="py-4 px-4 font-medium bg-gray-50 w-1/3">会社名</th><td class="py-4 px-4">株式会社YUNO</td></tr>
+                                <tr class="border-b"><th class="py-4 px-4 font-medium bg-gray-50">設立</th><td class="py-4 px-4">2026年4月1日（予定）</td></tr>
+                                <tr class="border-b"><th class="py-4 px-4 font-medium bg-gray-50">代表取締役</th><td class="py-4 px-4">佐古 祐太</td></tr>
+                                <tr class="border-b"><th class="py-4 px-4 font-medium bg-gray-50">所在地</th><td class="py-4 px-4">埼玉県さいたま市（浦和〜大宮周辺）</td></tr>
+                                <tr class="border-b"><th class="py-4 px-4 font-medium bg-gray-50">資本金</th><td class="py-4 px-4">500万円</td></tr>
+                                <tr class="border-b"><th class="py-4 px-4 font-medium bg-gray-50">従業員数</th><td class="py-4 px-4">3名（予定）</td></tr>
+                                <tr class="border-b"><th class="py-4 px-4 font-medium bg-gray-50">事業内容</th><td class="py-4 px-4">注文住宅事業</td></tr>
+                                <tr class="border-b"><th class="py-4 px-4 font-medium bg-gray-50">許可・登録</th><td class="py-4 px-4">二級建築士事務所 埼玉県知事登録（予定）</td></tr>
+                                <tr><th class="py-4 px-4 font-medium bg-gray-50">資格従事者</th><td class="py-4 px-4">二級建築士</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="bg-deep-indigo text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-bold tracking-wider">株式会社YUNO</h3>
+                    <p class="text-sm text-gray-400 mt-1">〒XXX-XXXX 埼玉県さいたま市（予定）</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#concept" class="hover:text-gray-300">家づくり</a>
+                    <a href="#service" class="hover:text-gray-300">事業案内</a>
+                    <a href="#company" class="hover:text-gray-300">会社案内</a>
+                    <a href="#events" class="hover:text-gray-300">イベント</a>
+                </div>
+            </div>
+            <div class="mt-10 border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+                &copy; 2026 YUNO Inc. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // モバイルメニューのトグル
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // メニュー項目クリックでメニューを閉じる
+        const menuLinks = document.querySelectorAll('#mobile-menu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // スクロールアニメーション
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            revealElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) { // 100px手前で表示
+                    el.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        // 初期表示時にもチェック
+        document.addEventListener('DOMContentLoaded', revealOnScroll);
+
+    </script>
+
+</body>
+</html>
