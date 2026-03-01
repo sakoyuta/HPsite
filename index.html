@@ -12,7 +12,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -32,29 +32,31 @@
 
         body {
             font-family: 'Noto Sans JP', sans-serif;
-            font-weight: 300;
+            font-weight: 400;
             background-color: var(--color-bg);
             color: var(--color-ink);
             -webkit-font-smoothing: antialiased;
+            line-height: 1.8;
         }
 
-        .font-serif  { font-family: 'Noto Serif JP', serif; }
-        .font-en     { font-family: 'Cormorant Garamond', serif; }
+        .font-serif { font-family: 'Noto Sans JP', sans-serif; font-weight: 700; }
+        .font-en    { font-family: 'Montserrat', sans-serif; }
 
         .label {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.7rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
             letter-spacing: 0.3em;
             text-transform: uppercase;
             color: var(--color-warm);
+            font-weight: 500;
         }
 
         .section-en {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(3rem, 6vw, 5rem);
-            font-weight: 300;
-            letter-spacing: 0.08em;
-            line-height: 1;
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
             color: var(--color-ink);
         }
 
@@ -146,8 +148,8 @@
         .btn-outline-dark:hover { background:var(--color-ink); color:#fff; }
 
         .num-accent {
-            font-family:'Cormorant Garamond',serif;
-            font-size:5rem; font-weight:300; line-height:1;
+            font-family:'Montserrat',sans-serif;
+            font-size:4rem; font-weight:700; line-height:1;
             color:var(--color-line);
         }
 
@@ -446,7 +448,7 @@
 ══════════════════════════════════════ -->
 <section class="py-14 bg-[var(--color-ink)]">
     <div class="container mx-auto px-6 text-center">
-        <p class="font-en text-white/20 text-6xl md:text-8xl font-light tracking-widest leading-none select-none reveal">
+        <p class="font-en text-white/20 text-6xl md:text-8xl font-bold tracking-widest leading-none select-none reveal">
             YOUR ONLY HOME
         </p>
         <p class="text-white/50 text-xs tracking-[0.4em] mt-4 reveal" style="transition-delay:150ms;">
@@ -501,7 +503,7 @@
                 家は、ただ雨風をしのぐ箱ではありません。一日の始まりに活力を得て、一日の終わりに心から安らげる場所。私たちは「活力の源」となる住まいを通じて、お客様の日々を、人生を、より豊かに祐けたいと願っています。
             </p>
             <div class="border-l-2 border-[var(--color-warm)] pl-6 mb-10">
-                <p class="font-en text-4xl font-light text-[var(--color-warm)] tracking-widest mb-2">YUNO HOME</p>
+                <p class="font-en text-3xl font-bold text-[var(--color-warm)] tracking-widest mb-2">YUNO HOME</p>
                 <p class="text-xs leading-relaxed text-[var(--color-stone)]">
                     <b class="text-[var(--color-warm)] font-medium">YU（祐）</b> — 専門知識と経験でお客様を「祐ける」存在へ<br>
                     <b class="text-[var(--color-warm)] font-medium">NO（結）</b> — お客様・作り手・ご家族の絆を固く「結ぶ」存在へ<br>
@@ -592,7 +594,7 @@
             <div class="bg-white p-8 md:p-10 flex flex-col sm:flex-row items-start sm:items-center gap-8 reveal group">
                 <div class="flex-shrink-0 text-center w-20">
                     <p class="label">2026.08</p>
-                    <p class="font-en text-6xl font-light leading-none text-[var(--color-ink)]">10</p>
+                    <p class="font-en text-5xl font-bold leading-none text-[var(--color-ink)]">10</p>
                     <p class="text-xs text-[var(--color-stone)] mt-1">土曜日</p>
                 </div>
                 <div class="w-px h-16 bg-[var(--color-line)] hidden sm:block flex-shrink-0"></div>
@@ -611,7 +613,7 @@
             <div class="bg-white p-8 md:p-10 flex flex-col sm:flex-row items-start sm:items-center gap-8 opacity-50 reveal">
                 <div class="flex-shrink-0 text-center w-20">
                     <p class="label">2026.09</p>
-                    <p class="font-en text-6xl font-light leading-none text-[var(--color-ink)]">14</p>
+                    <p class="font-en text-5xl font-bold leading-none text-[var(--color-ink)]">14</p>
                     <p class="text-xs text-[var(--color-stone)] mt-1">土曜日</p>
                 </div>
                 <div class="w-px h-16 bg-[var(--color-line)] hidden sm:block flex-shrink-0"></div>

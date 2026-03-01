@@ -10,7 +10,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -29,29 +29,31 @@
 
         body {
             font-family: 'Noto Sans JP', sans-serif;
-            font-weight: 300;
+            font-weight: 400;
             background-color: var(--color-bg);
             color: var(--color-ink);
             -webkit-font-smoothing: antialiased;
+            line-height: 1.8;
         }
 
-        .font-serif { font-family: 'Noto Serif JP', serif; }
-        .font-en    { font-family: 'Cormorant Garamond', serif; }
+        .font-serif { font-family: 'Noto Sans JP', sans-serif; font-weight: 700; }
+        .font-en    { font-family: 'Montserrat', sans-serif; }
 
         .label {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.7rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
             letter-spacing: 0.3em;
             text-transform: uppercase;
             color: var(--color-warm);
+            font-weight: 500;
         }
 
         .section-en {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(2.8rem, 6vw, 4.5rem);
-            font-weight: 300;
-            letter-spacing: 0.08em;
-            line-height: 1;
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
             color: var(--color-ink);
         }
 
@@ -116,9 +118,9 @@
 
         /* Strength cards */
         .str-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 6rem;
-            font-weight: 300;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 5rem;
+            font-weight: 700;
             line-height: 1;
             color: transparent;
             -webkit-text-stroke: 1px var(--color-line);
@@ -157,18 +159,18 @@
             margin: 0 auto;
         }
         .flow-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 3rem;
-            font-weight: 300;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 600;
             line-height: 1;
             color: var(--color-warm);
         }
 
         /* Stat counter */
         .stat-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(3rem, 6vw, 5rem);
-            font-weight: 300;
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
             line-height: 1;
             color: var(--color-warm);
         }
@@ -480,13 +482,13 @@
                         </p>
                         <div class="grid grid-cols-2 gap-4">
                             <div class="bg-white p-4 text-center">
-                                <p class="font-en text-3xl font-light text-[var(--color-warm)]">UA<span class="text-lg">値</span></p>
-                                <p class="font-en text-4xl font-light">0.46<span class="text-lg">以下</span></p>
+                                <p class="font-en text-2xl font-bold text-[var(--color-warm)]">UA<span class="text-lg">値</span></p>
+                                <p class="font-en text-3xl font-semibold">0.46<span class="text-lg">以下</span></p>
                                 <p class="text-xs text-[var(--color-stone)] mt-1">断熱等性能等級6</p>
                             </div>
                             <div class="bg-white p-4 text-center">
-                                <p class="font-en text-3xl font-light text-[var(--color-warm)]">C<span class="text-lg">値</span></p>
-                                <p class="font-en text-4xl font-light">1.0<span class="text-lg">以下</span></p>
+                                <p class="font-en text-2xl font-bold text-[var(--color-warm)]">C<span class="text-lg">値</span></p>
+                                <p class="font-en text-3xl font-semibold">1.0<span class="text-lg">以下</span></p>
                                 <p class="text-xs text-[var(--color-stone)] mt-1">高気密住宅の基準</p>
                             </div>
                         </div>
@@ -806,22 +808,22 @@
             </div>
             <div class="grid md:grid-cols-4 gap-6">
                 <div class="bg-white p-6 border-t-2 border-[var(--color-warm)] reveal">
-                    <p class="font-en text-5xl font-light text-[var(--color-warm)] mb-4">1<span class="text-2xl">年</span></p>
+                    <p class="font-en text-4xl font-bold text-[var(--color-warm)] mb-4">1<span class="text-2xl">年</span></p>
                     <h4 class="font-serif font-semibold mb-2">1年点検</h4>
                     <p class="text-xs text-[var(--color-stone)] leading-loose">引き渡し後1年目の総合点検。住宅設備の動作確認・外壁・基礎・屋根などを徹底チェック。</p>
                 </div>
                 <div class="bg-white p-6 border-t-2 border-[var(--color-warm)] reveal" style="transition-delay:100ms;">
-                    <p class="font-en text-5xl font-light text-[var(--color-warm)] mb-4">3<span class="text-2xl">年</span></p>
+                    <p class="font-en text-4xl font-bold text-[var(--color-warm)] mb-4">3<span class="text-2xl">年</span></p>
                     <h4 class="font-serif font-semibold mb-2">3年点検</h4>
                     <p class="text-xs text-[var(--color-stone)] leading-loose">劣化が出始める時期を先手でチェック。コーキングや塗装の状態を確認し、必要に応じてメンテナンスを提案します。</p>
                 </div>
                 <div class="bg-white p-6 border-t-2 border-[var(--color-warm)] reveal" style="transition-delay:200ms;">
-                    <p class="font-en text-5xl font-light text-[var(--color-warm)] mb-4">5<span class="text-2xl">年</span></p>
+                    <p class="font-en text-4xl font-bold text-[var(--color-warm)] mb-4">5<span class="text-2xl">年</span></p>
                     <h4 class="font-serif font-semibold mb-2">5年点検</h4>
                     <p class="text-xs text-[var(--color-stone)] leading-loose">構造体・防水・設備機器を精査。ライフスタイルの変化に応じた増改築やリノベーションのご相談も承ります。</p>
                 </div>
                 <div class="bg-white p-6 border-t-2 border-[var(--color-warm)] reveal" style="transition-delay:300ms;">
-                    <p class="font-en text-5xl font-light text-[var(--color-warm)] mb-4">10<span class="text-2xl">年</span></p>
+                    <p class="font-en text-4xl font-bold text-[var(--color-warm)] mb-4">10<span class="text-2xl">年</span></p>
                     <h4 class="font-serif font-semibold mb-2">10年点検</h4>
                     <p class="text-xs text-[var(--color-stone)] leading-loose">住宅の長期保証に合わせた包括的な検査。外壁の塗り替えや設備更新など、長期的な維持計画をご提案します。</p>
                 </div>
