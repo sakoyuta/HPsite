@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YUNO HOMEの特徴 | 株式会社YUNO HOME</title>
+    <meta name="description" content="製販一体体制・高性能住宅・デザインの自由度・徹底したコスト管理・アフターサポート。YUNO HOMEが選ばれる5つの理由と家づくりの流れをご紹介します。">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --color-ink:    #1a1a1a;
+            --color-stone:  #4a4540;
+            --color-warm:   #c9a96e;
+            --color-warm-d: #a8874d;
+            --color-bg:     #faf9f7;
+            --color-bg2:    #f2efe9;
+            --color-line:   #e0d9d0;
+        }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 300;
+            background-color: var(--color-bg);
+            color: var(--color-ink);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .font-serif { font-family: 'Noto Serif JP', serif; }
+        .font-en    { font-family: 'Cormorant Garamond', serif; }
+
+        .label {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--color-warm);
+        }
+
+        .section-en {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.8rem, 6vw, 4.5rem);
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            line-height: 1;
+            color: var(--color-ink);
+        }
+
+        /* Header */
+        #header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(250,249,247,0.97);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 1px 0 var(--color-line);
+        }
+
+        /* Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.9s cubic-bezier(.22,1,.36,1),
+                        transform 0.9s cubic-bezier(.22,1,.36,1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Buttons */
+        .btn-primary {
+            display: inline-block; padding: 1rem 2.5rem;
+            background: var(--color-warm); color: #fff;
+            font-size: 0.8rem; letter-spacing: 0.2em;
+            font-family: 'Noto Sans JP', sans-serif; font-weight: 500;
+            transition: background 0.3s;
+        }
+        .btn-primary:hover { background: var(--color-warm-d); }
+
+        .btn-outline-dark {
+            display: inline-block; padding: 0.9rem 2.2rem;
+            border: 1px solid var(--color-ink); color: var(--color-ink);
+            font-size: 0.75rem; letter-spacing: 0.2em;
+            font-family: 'Noto Sans JP', sans-serif; font-weight: 400;
+            transition: background 0.3s, color 0.3s;
+        }
+        .btn-outline-dark:hover { background: var(--color-ink); color: #fff; }
+
+        .btn-outline-white {
+            display: inline-block; padding: 1rem 2.5rem;
+            border: 1px solid #fff; color: #fff;
+            font-size: 0.8rem; letter-spacing: 0.2em;
+            font-family: 'Noto Sans JP', sans-serif; font-weight: 400;
+            transition: background 0.3s, color 0.3s;
+        }
+        .btn-outline-white:hover { background: #fff; color: var(--color-ink); }
+
+        /* Page hero */
+        .page-hero {
+            background-image: linear-gradient(135deg, rgba(26,26,26,0.80) 0%, rgba(26,26,26,0.40) 100%),
+                              url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb a { transition: color 0.2s; }
+        .breadcrumb a:hover { color: var(--color-warm); }
+
+        /* Strength cards */
+        .str-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 6rem;
+            font-weight: 300;
+            line-height: 1;
+            color: transparent;
+            -webkit-text-stroke: 1px var(--color-line);
+        }
+
+        .str-icon {
+            width: 64px; height: 64px;
+            background: var(--color-bg2);
+            border-radius: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.6rem;
+            color: var(--color-warm);
+            flex-shrink: 0;
+        }
+
+        /* Spec table */
+        .spec-card {
+            background: #fff;
+            border-top: 3px solid var(--color-warm);
+            padding: 2rem;
+            transition: box-shadow 0.3s;
+        }
+        .spec-card:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.08); }
+
+        /* Flow timeline */
+        .flow-step {
+            display: grid;
+            grid-template-columns: 80px 1px 1fr;
+            gap: 0 2rem;
+            align-items: start;
+        }
+        .flow-step .flow-line {
+            width: 1px; background: var(--color-line);
+            height: 100%;
+            min-height: 40px;
+            margin: 0 auto;
+        }
+        .flow-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 300;
+            line-height: 1;
+            color: var(--color-warm);
+        }
+
+        /* Stat counter */
+        .stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 300;
+            line-height: 1;
+            color: var(--color-warm);
+        }
+
+        /* Tab navigation */
+        .tab-btn {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            padding: 0.75rem 1.5rem;
+            border-bottom: 2px solid transparent;
+            color: var(--color-stone);
+            transition: color 0.2s, border-color 0.2s;
+            white-space: nowrap;
+        }
+        .tab-btn.active, .tab-btn:hover {
+            color: var(--color-ink);
+            border-bottom-color: var(--color-warm);
+        }
+
+        /* Feature panel */
+        .feature-panel { display: none; }
+        .feature-panel.active { display: block; }
+
+        /* Zigzag layout */
+        .zigzag:nth-child(even) .zigzag-img { order: 2; }
+        .zigzag:nth-child(even) .zigzag-text { order: 1; }
+
+        /* Gallery hover */
+        .gal-item { overflow: hidden; }
+        .gal-item img { transition: transform 0.7s cubic-bezier(.22,1,.36,1); }
+        .gal-item:hover img { transform: scale(1.06); }
+
+        /* Modal */
+        #modal-overlay {
+            display: none; position: fixed; inset: 0; z-index: 200;
+            background: rgba(26,26,26,0.6); backdrop-filter: blur(4px);
+            overflow-y: auto; padding: 2rem 1rem;
+        }
+        #modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+        #modal-box { background: #fff; width: 100%; max-width: 760px; margin: auto; position: relative; }
+        .form-label { display: block; font-size: 0.75rem; letter-spacing: 0.1em; margin-bottom: 0.4rem; color: var(--color-stone); }
+        .form-label .req { display: inline-block; font-size: 0.6rem; background: var(--color-warm); color: #fff; padding: 0.1rem 0.35rem; margin-left: 0.4rem; vertical-align: middle; }
+        .form-input { width: 100%; border: 1px solid var(--color-line); padding: 0.7rem 0.9rem; font-size: 0.85rem; font-family: 'Noto Sans JP', sans-serif; outline: none; transition: border-color 0.2s; background: #faf9f7; }
+        .form-input:focus { border-color: var(--color-warm); background: #fff; }
+        .form-input.error { border-color: #e53e3e; }
+        .check-group { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; }
+        .check-item { display: flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.8rem; }
+        .check-item input[type="checkbox"] { accent-color: var(--color-warm); width: 1rem; height: 1rem; }
+        .file-drop { border: 1px dashed var(--color-line); background: #faf9f7; padding: 1.5rem; text-align: center; cursor: pointer; transition: border-color 0.2s; }
+        .file-drop:hover { border-color: var(--color-warm); }
+        .file-drop input[type="file"] { display: none; }
+        .error-msg { font-size: 0.7rem; color: #e53e3e; margin-top: 0.25rem; display: none; }
+        .error-msg.show { display: block; }
+        #form-success { display: none; }
+        #form-success.show { display: flex; }
+
+        #mobile-menu { background: var(--color-bg); border-top: 1px solid var(--color-line); }
+    </style>
+</head>
+<body>
+
+<!-- ══════ HEADER ══════ -->
+<header id="header" class="py-4 px-6 lg:px-12">
+    <div class="flex justify-between items-center">
+        <a href="index.html" class="font-en tracking-[0.2em] text-xl leading-tight" style="color:var(--color-ink)">YUNO HOME</a>
+        <nav class="hidden md:flex items-center gap-6">
+            <a href="index.html#concept" class="text-xs tracking-[0.2em] text-[var(--color-stone)] hover:text-[var(--color-ink)] transition">家づくり</a>
+            <a href="features.html"      class="text-xs tracking-[0.2em] text-[var(--color-ink)] font-medium border-b border-[var(--color-warm)] pb-0.5">特徴</a>
+            <a href="index.html#service" class="text-xs tracking-[0.2em] text-[var(--color-stone)] hover:text-[var(--color-ink)] transition">事業案内</a>
+            <a href="index.html#works"   class="text-xs tracking-[0.2em] text-[var(--color-stone)] hover:text-[var(--color-ink)] transition">デザイン</a>
+            <a href="index.html#events"  class="text-xs tracking-[0.2em] text-[var(--color-stone)] hover:text-[var(--color-ink)] transition">イベント</a>
+            <a href="index.html#company" class="text-xs tracking-[0.2em] text-[var(--color-stone)] hover:text-[var(--color-ink)] transition">会社案内</a>
+            <div class="w-px h-4 bg-[var(--color-line)]"></div>
+            <button onclick="openModal()" class="text-xs tracking-[0.15em] px-4 py-2 border border-[var(--color-ink)] text-[var(--color-ink)] hover:bg-[var(--color-ink)] hover:text-white transition">資料請求</button>
+            <a href="index.html#events" class="btn-primary text-xs py-2 px-5">イベント予約</a>
+        </nav>
+        <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-1">
+            <span class="block w-6 h-px bg-[var(--color-ink)] transition-all"></span>
+            <span class="block w-6 h-px bg-[var(--color-ink)] transition-all"></span>
+            <span class="block w-4 h-px bg-[var(--color-ink)] transition-all ml-auto"></span>
+        </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden mt-4 -mx-6 px-6 pb-6 pt-4">
+        <div class="flex flex-col gap-1">
+            <a href="index.html#concept" class="py-3 text-sm tracking-widest text-gray-600 border-b border-gray-100">家づくり</a>
+            <a href="features.html"      class="py-3 text-sm tracking-widest text-[var(--color-warm)] border-b border-gray-100 font-medium">特徴</a>
+            <a href="index.html#service" class="py-3 text-sm tracking-widest text-gray-600 border-b border-gray-100">事業案内</a>
+            <a href="index.html#works"   class="py-3 text-sm tracking-widest text-gray-600 border-b border-gray-100">デザイン</a>
+            <a href="index.html#events"  class="py-3 text-sm tracking-widest text-gray-600 border-b border-gray-100">イベント</a>
+            <a href="index.html#company" class="py-3 text-sm tracking-widest text-gray-600 border-b border-gray-100">会社案内</a>
+        </div>
+        <div class="mt-6 flex flex-col gap-3">
+            <a href="index.html#events" class="btn-primary text-center text-xs">イベント予約</a>
+            <button onclick="openModal()" class="btn-outline-dark text-center text-xs w-full">資料請求</button>
+        </div>
+    </div>
+</header>
+
+<!-- ══════ MODAL 資料請求 ══════ -->
+<div id="modal-overlay" role="dialog" aria-modal="true">
+    <div id="modal-box">
+        <div class="bg-[var(--color-ink)] px-8 py-7 flex justify-between items-center">
+            <div>
+                <p class="label text-white/50 mb-1">Document Request</p>
+                <h2 class="font-serif text-white text-2xl font-semibold">資料請求フォーム</h2>
+            </div>
+            <button onclick="closeModal()" class="text-white/50 hover:text-white transition text-2xl leading-none">&times;</button>
+        </div>
+        <form id="request-form" novalidate class="px-8 py-10 space-y-7">
+            <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                    <label class="form-label">氏名<span class="req">必須</span></label>
+                    <input type="text" id="f-name" class="form-input" placeholder="山田 太郎">
+                    <p class="error-msg" id="err-name">氏名を入力してください</p>
+                </div>
+                <div>
+                    <label class="form-label">フリガナ<span class="req">必須</span></label>
+                    <input type="text" id="f-kana" class="form-input" placeholder="ヤマダ タロウ">
+                    <p class="error-msg" id="err-kana">フリガナを入力してください</p>
+                </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                    <label class="form-label">メールアドレス<span class="req">必須</span></label>
+                    <input type="email" id="f-email" class="form-input" placeholder="example@email.com">
+                    <p class="error-msg" id="err-email">正しいメールアドレスを入力してください</p>
+                </div>
+                <div>
+                    <label class="form-label">確認用メールアドレス<span class="req">必須</span></label>
+                    <input type="email" id="f-email2" class="form-input" placeholder="example@email.com">
+                    <p class="error-msg" id="err-email2">メールアドレスが一致しません</p>
+                </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                    <label class="form-label">電話番号<span class="req">必須</span></label>
+                    <input type="tel" id="f-tel" class="form-input" placeholder="090-0000-0000">
+                    <p class="error-msg" id="err-tel">電話番号を入力してください</p>
+                </div>
+                <div>
+                    <label class="form-label">郵便番号</label>
+                    <input type="text" id="f-zip" class="form-input" placeholder="000-0000">
+                </div>
+            </div>
+            <div>
+                <label class="form-label">住所</label>
+                <input type="text" id="f-addr" class="form-input" placeholder="埼玉県さいたま市〇〇区〇〇町1-2-3">
+            </div>
+            <hr style="border-color:var(--color-line)">
+            <div>
+                <label class="form-label">建築予定地について<span class="req">必須</span></label>
+                <div class="check-group mt-2">
+                    <label class="check-item"><input type="checkbox" name="land" value="所有・建て替えを検討している"> 所有・建て替えを検討している</label>
+                    <label class="check-item"><input type="checkbox" name="land" value="購入予定地が決定している"> 購入予定地が決定している</label>
+                    <label class="check-item"><input type="checkbox" name="land" value="現在探している"> 現在探している</label>
+                    <label class="check-item"><input type="checkbox" name="land" value="未定"> 未定</label>
+                </div>
+                <p class="error-msg" id="err-land">1つ以上選択してください</p>
+            </div>
+            <div>
+                <label class="form-label">当社を、どちらでお知りになりましたか？<span class="req">必須</span></label>
+                <p class="text-xs text-[var(--color-stone)] mb-2">※複数選択可能です</p>
+                <div class="check-group">
+                    <label class="check-item"><input type="checkbox" name="from" value="Instagram広告"> Instagram広告</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="Facebook広告"> Facebook広告</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="TikTok広告"> TikTok広告</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="その他WEB広告"> その他WEB広告</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="YUNO HOME Instagram"> YUNO HOME Instagram</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="YUNO HOME YouTube"> YUNO HOME YouTube</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="ネット検索"> ネット検索</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="スーモ"> スーモ</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="知人の紹介"> 知人の紹介</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="その他"> その他</label>
+                </div>
+                <p class="error-msg" id="err-from">1つ以上選択してください</p>
+            </div>
+            <hr style="border-color:var(--color-line)">
+            <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                    <label class="form-label">添付写真①</label>
+                    <div class="file-drop" onclick="document.getElementById('f-photo1').click()">
+                        <input type="file" id="f-photo1" accept="image/*" onchange="showFileName('f-photo1','drop1-name')">
+                        <i class="fas fa-image text-2xl text-[var(--color-line)] mb-2"></i>
+                        <p class="text-xs text-[var(--color-stone)]">クリックして画像を選択</p>
+                        <p class="text-xs text-[var(--color-warm)] mt-1" id="drop1-name"></p>
+                    </div>
+                </div>
+                <div>
+                    <label class="form-label">添付写真②</label>
+                    <div class="file-drop" onclick="document.getElementById('f-photo2').click()">
+                        <input type="file" id="f-photo2" accept="image/*" onchange="showFileName('f-photo2','drop2-name')">
+                        <i class="fas fa-image text-2xl text-[var(--color-line)] mb-2"></i>
+                        <p class="text-xs text-[var(--color-stone)]">クリックして画像を選択</p>
+                        <p class="text-xs text-[var(--color-warm)] mt-1" id="drop2-name"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-2">
+                <button type="submit" class="btn-primary w-full text-center text-sm py-4 tracking-widest">送信する</button>
+                <p class="text-xs text-[var(--color-stone)] text-center mt-3">ご入力いただいた個人情報は資料請求対応のみに使用します。</p>
+            </div>
+        </form>
+        <div id="form-success" class="px-8 py-20 flex-col items-center justify-center text-center">
+            <div class="w-16 h-16 bg-[var(--color-bg2)] flex items-center justify-center mx-auto mb-6">
+                <i class="fas fa-check text-2xl text-[var(--color-warm)]"></i>
+            </div>
+            <p class="label mb-3">Thank you</p>
+            <h3 class="font-serif text-2xl font-semibold mb-4">送信が完了しました</h3>
+            <p class="text-sm text-[var(--color-stone)] leading-loose mb-8">資料請求ありがとうございます。<br>ご登録いただいたメールアドレス宛に確認メールをお送りします。<br>数日以内に担当者よりご連絡いたします。</p>
+            <button onclick="closeModal()" class="btn-outline-dark">閉じる</button>
+        </div>
+    </div>
+</div>
+
+<main class="pt-[72px]">
+
+    <!-- ══════ PAGE HERO ══════ -->
+    <section class="page-hero py-28 md:py-40 flex flex-col justify-end px-8 md:px-20">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb flex items-center gap-2 text-xs text-white/50 mb-8 reveal">
+            <a href="index.html" class="hover:text-white">TOP</a>
+            <span>/</span>
+            <span class="text-white">YUNO HOMEの特徴</span>
+        </nav>
+        <p class="label text-white/60 mb-4 reveal">Our Strengths</p>
+        <h1 class="font-serif text-white leading-snug reveal" style="font-size:clamp(2rem,5vw,3.5rem);font-weight:400;transition-delay:120ms;">
+            YUNO HOMEが<br>選ばれる理由
+        </h1>
+        <p class="text-white/60 text-sm tracking-widest mt-4 reveal" style="transition-delay:240ms;">
+            製販一体体制で実現する、性能・デザイン・コストの三位一体
+        </p>
+    </section>
+
+    <!-- ══════ INDEX NAV ══════ -->
+    <nav class="sticky top-[72px] z-50 bg-white border-b border-[var(--color-line)] overflow-x-auto">
+        <div class="flex min-w-max px-6 md:justify-center">
+            <a href="#strength"  class="tab-btn active" id="tab-strength">強みの紹介</a>
+            <a href="#spec"      class="tab-btn"        id="tab-spec">住宅性能</a>
+            <a href="#design"    class="tab-btn"        id="tab-design">デザイン</a>
+            <a href="#flow"      class="tab-btn"        id="tab-flow">家づくりの流れ</a>
+            <a href="#aftercare" class="tab-btn"        id="tab-after">アフターサポート</a>
+        </div>
+    </nav>
+
+    <!-- ══════ STRENGTH ══════ -->
+    <section id="strength" class="py-24 bg-[var(--color-bg)]">
+        <div class="container mx-auto px-6 lg:px-16">
+
+            <!-- intro -->
+            <div class="max-w-3xl mb-20 reveal">
+                <p class="label mb-4">Why YUNO HOME</p>
+                <h2 class="section-en mb-6">Our Strength</h2>
+                <p class="text-sm leading-loose text-[var(--color-stone)]">
+                    ハウスメーカー・工務店・設計事務所、それぞれに一長一短があります。<br>
+                    YUNO HOMEは「製販一体」という独自体制で、すべての良いところを一社に集約。<br>
+                    お客様の想いを最初から最後まで、一人の担当者が責任を持って届けます。
+                </p>
+            </div>
+
+            <!-- 5 strengths zigzag -->
+            <div class="space-y-0 zigzag-wrap">
+
+                <!-- 01 製販一体 -->
+                <div class="zigzag grid lg:grid-cols-2 gap-0 mb-0 reveal">
+                    <div class="zigzag-img gal-item h-72 lg:h-auto" style="min-height:360px;">
+                        <img src="https://images.unsplash.com/photo-1542337809-b42157643555?q=80&w=1974&auto=format&fit=crop"
+                             alt="製販一体" class="w-full h-full object-cover">
+                    </div>
+                    <div class="zigzag-text bg-white flex flex-col justify-center px-10 md:px-16 py-14">
+                        <div class="str-number mb-2">01</div>
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="str-icon"><i class="fas fa-handshake"></i></div>
+                            <h3 class="font-serif text-2xl font-semibold">製販一体体制</h3>
+                        </div>
+                        <p class="text-sm leading-loose text-[var(--color-stone)] mb-6">
+                            一般的な住宅会社では「営業」「設計」「現場」が別々の担当者に分かれており、情報の伝達ロスや認識のズレが生まれがちです。YUNO HOMEでは代表自らが全工程を把握し、一貫したコミュニケーションでお客様の想いを余すことなく形にします。
+                        </p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-3 text-sm text-[var(--color-stone)]">
+                                <i class="fas fa-check text-[var(--color-warm)] mt-0.5 flex-shrink-0"></i>
+                                <span>窓口が一本化されることで、打ち合わせがスムーズ</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-[var(--color-stone)]">
+                                <i class="fas fa-check text-[var(--color-warm)] mt-0.5 flex-shrink-0"></i>
+                                <span>設計意図が現場に正確に伝わり、仕上がりに差が出る</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-[var(--color-stone)]">
+                                <i class="fas fa-check text-[var(--color-warm)] mt-0.5 flex-shrink-0"></i>
+                                <span>問題が起きても即断即決で解決できる</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 02 高性能住宅 -->
+                <div class="zigzag grid lg:grid-cols-2 gap-0 reveal">
+                    <div class="zigzag-img gal-item h-72 lg:h-auto" style="min-height:360px; order: 2 !important;">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop"
+                             alt="高性能住宅" class="w-full h-full object-cover">
+                    </div>
+                    <div class="zigzag-text bg-[var(--color-bg2)] flex flex-col justify-center px-10 md:px-16 py-14" style="order: 1 !important;">
+                        <div class="str-number mb-2">02</div>
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="str-icon"><i class="fas fa-thermometer-half"></i></div>
+                            <h3 class="font-serif text-2xl font-semibold">高気密・高断熱性能</h3>
+                        </div>
+                        <p class="text-sm leading-loose text-[var(--color-stone)] mb-6">
+                            住宅の性能は、暮らしの快適さと光熱費に直結します。YUNO HOMEは断熱等性能等級6以上を標準仕様とし、夏涼しく冬暖かい、エネルギーコストを抑えた住まいを実現します。
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white p-4 text-center">
+                                <p class="font-en text-3xl font-light text-[var(--color-warm)]">UA<span class="text-lg">値</span></p>
+                                <p class="font-en text-4xl font-light">0.46<span class="text-lg">以下</span></p>
+                                <p class="text-xs text-[var(--color-stone)] mt-1">断熱等性能等級6</p>
+                            </div>
+                            <div class="bg-white p-4 text-center">
+                                <p class="font-en text-3xl font-light text-[var(--color-warm)]">C<span class="text-lg">値</span></p>
+                                <p class="font-en text-4xl font-light">1.0<span class="text-lg">以下</span></p>
+                                <p class="text-xs text-[var(--color-stone)] mt-1">高気密住宅の基準</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 03 デザイン -->
+                <div class="zigzag grid lg:grid-cols-2 gap-0 reveal">
+                    <div class="zigzag-img gal-item h-72 lg:h-auto" style="min-height:360px;">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop"
+                             alt="デザイン" class="w-full h-full object-cover">
+                    </div>
+                    <div class="zigzag-text bg-white flex flex-col justify-center px-10 md:px-16 py-14">
+                        <div class="str-number mb-2">03</div>
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="str-icon"><i class="fas fa-drafting-compass"></i></div>
+                            <h3 class="font-serif text-2xl font-semibold">デザインの完全自由</h3>
+                        </div>
+                        <p class="text-sm leading-loose text-[var(--color-stone)] mb-6">
+                            「規格住宅」ではありません。外観・内装・間取りのすべてをゼロから設計します。お客様の好みや生活動線を丁寧にヒアリングし、暮らしやすさと美しさを両立した、世界にひとつの空間をつくります。
+                        </p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-3 text-sm text-[var(--color-stone)]">
+                                <i class="fas fa-check text-[var(--color-warm)] mt-0.5 flex-shrink-0"></i>
+                                <span>モダン・ナチュラル・和モダンなどスタイルは自由</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-[var(--color-stone)]">
+                                <i class="fas fa-check text-[var(--color-warm)] mt-0.5 flex-shrink-0"></i>
+                                <span>素材・色・照明計画まで細部にこだわれる</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-[var(--color-stone)]">
+                                <i class="fas fa-check text-[var(--color-warm)] mt-0.5 flex-shrink-0"></i>
+                                <span>3Dパース・模型で完成イメージを共有</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 04 コスト -->
+                <div class="zigzag grid lg:grid-cols-2 gap-0 reveal">
+                    <div class="zigzag-img gal-item h-72 lg:h-auto" style="min-height:360px; order: 2 !important;">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1918&auto=format&fit=crop"
+                             alt="コスト管理" class="w-full h-full object-cover">
+                    </div>
+                    <div class="zigzag-text bg-[var(--color-bg2)] flex flex-col justify-center px-10 md:px-16 py-14" style="order: 1 !important;">
+                        <div class="str-number mb-2">04</div>
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="str-icon"><i class="fas fa-yen-sign"></i></div>
+                            <h3 class="font-serif text-2xl font-semibold">明快なコスト管理</h3>
+                        </div>
+                        <p class="text-sm leading-loose text-[var(--color-stone)] mb-6">
+                            大手ハウスメーカーに比べ、広告費・モデルハウス維持費・多重下請けによる中間マージンが発生しません。適正価格で最高品質を実現し、浮いたコストをお客様の「こだわり」に充てることができます。
+                        </p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-3 text-sm text-[var(--color-stone)]">
+                                <i class="fas fa-check text-[var(--color-warm)] mt-0.5 flex-shrink-0"></i>
+                                <span>詳細な見積もりを最初から全開示</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-[var(--color-stone)]">
+                                <i class="fas fa-check text-[var(--color-warm)] mt-0.5 flex-shrink-0"></i>
+                                <span>追加費用が発生する場合は事前にご説明</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-[var(--color-stone)]">
+                                <i class="fas fa-check text-[var(--color-warm)] mt-0.5 flex-shrink-0"></i>
+                                <span>資金計画・住宅ローンの相談も対応</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 05 アフター -->
+                <div class="zigzag grid lg:grid-cols-2 gap-0 reveal">
+                    <div class="zigzag-img gal-item h-72 lg:h-auto" style="min-height:360px;">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1974&auto=format&fit=crop"
+                             alt="アフターサポート" class="w-full h-full object-cover">
+                    </div>
+                    <div class="zigzag-text bg-white flex flex-col justify-center px-10 md:px-16 py-14">
+                        <div class="str-number mb-2">05</div>
+                        <div class="flex items-center gap-4 mb-5">
+                            <div class="str-icon"><i class="fas fa-shield-alt"></i></div>
+                            <h3 class="font-serif text-2xl font-semibold">長期アフターサポート</h3>
+                        </div>
+                        <p class="text-sm leading-loose text-[var(--color-stone)] mb-6">
+                            お引き渡しはゴールではなく、スタートです。YUNO HOMEはお客様の暮らしに寄り添い、定期点検やメンテナンス相談など、長きにわたってサポートします。
+                        </p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-3 text-sm text-[var(--color-stone)]">
+                                <i class="fas fa-check text-[var(--color-warm)] mt-0.5 flex-shrink-0"></i>
+                                <span>引き渡し後1年・3年・5年・10年の定期点検</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-[var(--color-stone)]">
+                                <i class="fas fa-check text-[var(--color-warm)] mt-0.5 flex-shrink-0"></i>
+                                <span>リフォーム・増改築の相談も一貫して対応</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-sm text-[var(--color-stone)]">
+                                <i class="fas fa-check text-[var(--color-warm)] mt-0.5 flex-shrink-0"></i>
+                                <span>施工した担当者が直接対応するため安心</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div><!-- /zigzag-wrap -->
+        </div>
+    </section>
+
+    <!-- ══════ SPEC: 数字で見るYUNO HOME ══════ -->
+    <section id="spec" class="py-24 bg-[var(--color-ink)]">
+        <div class="container mx-auto px-6 lg:px-16">
+            <div class="mb-16 reveal">
+                <p class="label text-white/40 mb-4">By The Numbers</p>
+                <h2 class="section-en text-white">数字で見る<br>YUNO HOME</h2>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10">
+                <div class="bg-[var(--color-ink)] p-8 text-center reveal">
+                    <p class="stat-num">UA<br><span style="font-size:clamp(2.5rem,5vw,4rem);">0.46</span></p>
+                    <p class="text-xs text-white/40 tracking-widest mt-3">断熱性能（等級6）</p>
+                </div>
+                <div class="bg-[var(--color-ink)] p-8 text-center reveal" style="transition-delay:100ms;">
+                    <p class="stat-num">C値<br><span style="font-size:clamp(2.5rem,5vw,4rem);">1.0</span></p>
+                    <p class="text-xs text-white/40 tracking-widest mt-3">気密性能（以下）</p>
+                </div>
+                <div class="bg-[var(--color-ink)] p-8 text-center reveal" style="transition-delay:200ms;">
+                    <p class="stat-num" style="font-size:clamp(2.5rem,5vw,4rem);">10年</p>
+                    <p class="text-xs text-white/40 tracking-widest mt-3">定期点検・サポート</p>
+                </div>
+                <div class="bg-[var(--color-ink)] p-8 text-center reveal" style="transition-delay:300ms;">
+                    <p class="stat-num" style="font-size:clamp(2rem,4vw,3.5rem);">100%</p>
+                    <p class="text-xs text-white/40 tracking-widest mt-3">完全注文住宅（規格なし）</p>
+                </div>
+            </div>
+
+            <!-- Spec detail cards -->
+            <div class="grid md:grid-cols-3 gap-6 mt-12">
+                <div class="spec-card reveal">
+                    <i class="fas fa-fire-alt text-[var(--color-warm)] text-2xl mb-4"></i>
+                    <h4 class="font-serif text-lg font-semibold mb-3">断熱・省エネ</h4>
+                    <p class="text-sm text-[var(--color-stone)] leading-loose">高性能グラスウールまたは硬質ウレタンフォームを標準採用。屋根・壁・床・窓まで隙間なく包む外皮断熱で、年間光熱費を大幅に削減します。</p>
+                </div>
+                <div class="spec-card reveal" style="transition-delay:150ms;">
+                    <i class="fas fa-wind text-[var(--color-warm)] text-2xl mb-4"></i>
+                    <h4 class="font-serif text-lg font-semibold mb-3">24時間換気システム</h4>
+                    <p class="text-sm text-[var(--color-stone)] leading-loose">第三種換気を標準装備。シックハウスの原因となる化学物質やホコリを常時排出し、家族が安心して呼吸できる空気環境を保ちます。</p>
+                </div>
+                <div class="spec-card reveal" style="transition-delay:300ms;">
+                    <i class="fas fa-home text-[var(--color-warm)] text-2xl mb-4"></i>
+                    <h4 class="font-serif text-lg font-semibold mb-3">耐震等級3</h4>
+                    <p class="text-sm text-[var(--color-stone)] leading-loose">最高等級の耐震性能を標準仕様に設定。繰り返す余震にも強い剛性の高い構造で、大切な家族と財産をしっかり守ります。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ DESIGN ══════ -->
+    <section id="design" class="py-24 bg-[var(--color-bg2)]">
+        <div class="container mx-auto px-6 lg:px-16">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 reveal">
+                <div>
+                    <p class="label mb-4">Design Freedom</p>
+                    <h2 class="section-en">デザインの世界</h2>
+                </div>
+                <p class="text-xs text-[var(--color-stone)] tracking-widest mt-4 md:mt-0 max-w-xs leading-loose">
+                    規格はありません。あなたの感性と<br>理想の暮らしをそのまま形にします。
+                </p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-12 gap-3">
+                <div class="col-span-2 md:col-span-8 gal-item reveal" style="height:440px;">
+                    <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="外観デザイン">
+                </div>
+                <div class="col-span-1 md:col-span-4 gal-item reveal" style="height:440px; transition-delay:100ms;">
+                    <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1617103995724-5c0483804fce?q=80&w=1964&auto=format&fit=crop" alt="リビング">
+                </div>
+                <div class="col-span-1 md:col-span-4 gal-item reveal" style="height:280px; transition-delay:150ms;">
+                    <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1616046229478-9901c5536a45?q=80&w=2080&auto=format&fit=crop" alt="インテリア">
+                </div>
+                <div class="col-span-2 md:col-span-4 gal-item reveal" style="height:280px; transition-delay:200ms;">
+                    <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop" alt="キッチン">
+                </div>
+                <div class="col-span-1 md:col-span-4 gal-item reveal" style="height:280px; transition-delay:250ms;">
+                    <img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop" alt="外観">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ FLOW ══════ -->
+    <section id="flow" class="py-24 bg-[var(--color-bg)]">
+        <div class="container mx-auto px-6 lg:px-16">
+            <div class="mb-16 reveal">
+                <p class="label mb-4">Step by Step</p>
+                <h2 class="section-en">家づくりの流れ</h2>
+                <p class="text-sm text-[var(--color-stone)] mt-4 leading-loose">
+                    初めてのご相談から、お引き渡し後のサポートまで。<br>
+                    YUNO HOMEとお客様が歩む、家づくりの全ステップをご紹介します。
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-0">
+
+                <!-- step 01 -->
+                <div class="reveal">
+                    <div class="flex gap-6 md:gap-10 items-start pb-0">
+                        <div class="flex flex-col items-center flex-shrink-0">
+                            <div class="w-14 h-14 bg-[var(--color-warm)] flex items-center justify-center flex-shrink-0">
+                                <span class="font-en text-white text-xl font-light">01</span>
+                            </div>
+                            <div class="w-px flex-1 bg-[var(--color-line)] mt-0" style="min-height:60px;"></div>
+                        </div>
+                        <div class="pb-12 flex-1">
+                            <span class="label">First Meeting</span>
+                            <h3 class="font-serif text-xl font-semibold mt-1 mb-3">ご相談・ヒアリング</h3>
+                            <p class="text-sm text-[var(--color-stone)] leading-loose">まずは無料の個別相談会にお越しください。理想のライフスタイル・ご予算・土地の有無などをじっくりお聞きします。どんな些細なことでもお気軽にご相談ください。</p>
+                            <div class="mt-4 inline-block bg-[var(--color-bg2)] px-4 py-2">
+                                <p class="text-xs text-[var(--color-stone)]"><i class="fas fa-clock text-[var(--color-warm)] mr-2"></i>所要時間の目安：1〜2時間</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- step 02 -->
+                <div class="reveal">
+                    <div class="flex gap-6 md:gap-10 items-start">
+                        <div class="flex flex-col items-center flex-shrink-0">
+                            <div class="w-14 h-14 bg-[var(--color-warm)] flex items-center justify-center flex-shrink-0">
+                                <span class="font-en text-white text-xl font-light">02</span>
+                            </div>
+                            <div class="w-px flex-1 bg-[var(--color-line)] mt-0" style="min-height:60px;"></div>
+                        </div>
+                        <div class="pb-12 flex-1">
+                            <span class="label">Land Search</span>
+                            <h3 class="font-serif text-xl font-semibold mt-1 mb-3">土地探し・資金計画</h3>
+                            <p class="text-sm text-[var(--color-stone)] leading-loose">土地をお持ちでない場合は、ご希望エリアでの土地探しをサポートします。同時に住宅ローンのシミュレーションや資金計画も一緒に行い、安心して家づくりをスタートできる体制を整えます。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- step 03 -->
+                <div class="reveal">
+                    <div class="flex gap-6 md:gap-10 items-start">
+                        <div class="flex flex-col items-center flex-shrink-0">
+                            <div class="w-14 h-14 bg-[var(--color-warm)] flex items-center justify-center flex-shrink-0">
+                                <span class="font-en text-white text-xl font-light">03</span>
+                            </div>
+                            <div class="w-px flex-1 bg-[var(--color-line)] mt-0" style="min-height:60px;"></div>
+                        </div>
+                        <div class="pb-12 flex-1">
+                            <span class="label">Design & Planning</span>
+                            <h3 class="font-serif text-xl font-semibold mt-1 mb-3">設計・プランニング</h3>
+                            <p class="text-sm text-[var(--color-stone)] leading-loose">ヒアリング内容をもとに間取り・外観・内装のプランを作成します。3Dパースを用いて完成イメージをリアルに確認しながら、納得いくまで何度でもブラッシュアップします。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- step 04 -->
+                <div class="reveal">
+                    <div class="flex gap-6 md:gap-10 items-start">
+                        <div class="flex flex-col items-center flex-shrink-0">
+                            <div class="w-14 h-14 bg-[var(--color-warm)] flex items-center justify-center flex-shrink-0">
+                                <span class="font-en text-white text-xl font-light">04</span>
+                            </div>
+                            <div class="w-px flex-1 bg-[var(--color-line)] mt-0" style="min-height:60px;"></div>
+                        </div>
+                        <div class="pb-12 flex-1">
+                            <span class="label">Construction</span>
+                            <h3 class="font-serif text-xl font-semibold mt-1 mb-3">着工・工事</h3>
+                            <p class="text-sm text-[var(--color-stone)] leading-loose">契約・建築確認申請が完了したら、いよいよ着工です。定期的に現場見学会を実施し、工事の進捗をリアルタイムでご確認いただけます。疑問点や変更希望もその場で即対応します。</p>
+                            <div class="mt-4 inline-block bg-[var(--color-bg2)] px-4 py-2">
+                                <p class="text-xs text-[var(--color-stone)]"><i class="fas fa-calendar-alt text-[var(--color-warm)] mr-2"></i>工期の目安：着工から約4〜6ヶ月</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- step 05 -->
+                <div class="reveal">
+                    <div class="flex gap-6 md:gap-10 items-start">
+                        <div class="flex flex-col items-center flex-shrink-0">
+                            <div class="w-14 h-14 bg-[var(--color-warm)] flex items-center justify-center flex-shrink-0">
+                                <span class="font-en text-white text-xl font-light">05</span>
+                            </div>
+                            <div class="w-px flex-1 bg-[var(--color-line)] mt-0" style="min-height:60px;"></div>
+                        </div>
+                        <div class="pb-12 flex-1">
+                            <span class="label">Completion</span>
+                            <h3 class="font-serif text-xl font-semibold mt-1 mb-3">完成・お引き渡し</h3>
+                            <p class="text-sm text-[var(--color-stone)] leading-loose">竣工検査・施主検査を経て、いよいよお引き渡しです。住宅設備の使い方や日常のメンテナンス方法を丁寧にご説明します。長く快適に住み続けるためのアドバイスもお伝えします。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- step 06 -->
+                <div class="reveal">
+                    <div class="flex gap-6 md:gap-10 items-start">
+                        <div class="flex flex-col items-center flex-shrink-0">
+                            <div class="w-14 h-14 border border-[var(--color-warm)] flex items-center justify-center flex-shrink-0">
+                                <span class="font-en text-[var(--color-warm)] text-xl font-light">06</span>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <span class="label">After Support</span>
+                            <h3 class="font-serif text-xl font-semibold mt-1 mb-3">アフターサポート</h3>
+                            <p class="text-sm text-[var(--color-stone)] leading-loose">引き渡し後も、YUNO HOMEとのお付き合いは続きます。1・3・5・10年の定期点検を実施し、お住まいの状態を継続的に確認。小さな変化も見逃しません。</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ AFTER CARE ══════ -->
+    <section id="aftercare" class="py-24 bg-[var(--color-bg2)]">
+        <div class="container mx-auto px-6 lg:px-16">
+            <div class="mb-16 reveal">
+                <p class="label mb-4">Long-term Support</p>
+                <h2 class="section-en">アフターサポート</h2>
+            </div>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 border-t-2 border-[var(--color-warm)] reveal">
+                    <p class="font-en text-5xl font-light text-[var(--color-warm)] mb-4">1<span class="text-2xl">年</span></p>
+                    <h4 class="font-serif font-semibold mb-2">1年点検</h4>
+                    <p class="text-xs text-[var(--color-stone)] leading-loose">引き渡し後1年目の総合点検。住宅設備の動作確認・外壁・基礎・屋根などを徹底チェック。</p>
+                </div>
+                <div class="bg-white p-6 border-t-2 border-[var(--color-warm)] reveal" style="transition-delay:100ms;">
+                    <p class="font-en text-5xl font-light text-[var(--color-warm)] mb-4">3<span class="text-2xl">年</span></p>
+                    <h4 class="font-serif font-semibold mb-2">3年点検</h4>
+                    <p class="text-xs text-[var(--color-stone)] leading-loose">劣化が出始める時期を先手でチェック。コーキングや塗装の状態を確認し、必要に応じてメンテナンスを提案します。</p>
+                </div>
+                <div class="bg-white p-6 border-t-2 border-[var(--color-warm)] reveal" style="transition-delay:200ms;">
+                    <p class="font-en text-5xl font-light text-[var(--color-warm)] mb-4">5<span class="text-2xl">年</span></p>
+                    <h4 class="font-serif font-semibold mb-2">5年点検</h4>
+                    <p class="text-xs text-[var(--color-stone)] leading-loose">構造体・防水・設備機器を精査。ライフスタイルの変化に応じた増改築やリノベーションのご相談も承ります。</p>
+                </div>
+                <div class="bg-white p-6 border-t-2 border-[var(--color-warm)] reveal" style="transition-delay:300ms;">
+                    <p class="font-en text-5xl font-light text-[var(--color-warm)] mb-4">10<span class="text-2xl">年</span></p>
+                    <h4 class="font-serif font-semibold mb-2">10年点検</h4>
+                    <p class="text-xs text-[var(--color-stone)] leading-loose">住宅の長期保証に合わせた包括的な検査。外壁の塗り替えや設備更新など、長期的な維持計画をご提案します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ CTA ══════ -->
+    <section class="py-24 bg-[var(--color-ink)] relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2070&auto=format&fit=crop');background-size:cover;background-position:center;"></div>
+        <div class="container mx-auto px-6 text-center relative z-10 reveal">
+            <p class="label text-white/50 mb-5">First Step</p>
+            <h2 class="font-serif text-white text-3xl md:text-4xl font-semibold mb-4">まずは、ご相談ください。</h2>
+            <p class="text-white/50 text-xs tracking-widest mb-10">お客様の想いを、丁寧に、じっくりお聞きします。</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="openModal()" class="btn-primary">資料請求する</button>
+                <a href="index.html#events" class="btn-outline-white">無料相談会に申し込む</a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ══════ FOOTER ══════ -->
+<footer class="bg-[#111] text-white">
+    <div class="container mx-auto px-6 lg:px-12 py-16">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-10">
+            <div>
+                <p class="font-en text-2xl tracking-[0.25em] mb-3">YUNO HOME</p>
+                <p class="text-xs text-white/40 tracking-widest leading-relaxed">株式会社YUNO HOME<br>〒XXX-XXXX 埼玉県さいたま市（予定）</p>
+            </div>
+            <nav class="flex flex-wrap gap-x-8 gap-y-3">
+                <a href="index.html" class="text-xs tracking-widest text-white/50 hover:text-white transition">TOP</a>
+                <a href="features.html" class="text-xs tracking-widest text-white hover:text-white transition">特徴</a>
+                <a href="index.html#service" class="text-xs tracking-widest text-white/50 hover:text-white transition">事業案内</a>
+                <a href="index.html#works" class="text-xs tracking-widest text-white/50 hover:text-white transition">デザイン</a>
+                <a href="index.html#events" class="text-xs tracking-widest text-white/50 hover:text-white transition">イベント</a>
+                <a href="index.html#company" class="text-xs tracking-widest text-white/50 hover:text-white transition">会社案内</a>
+                <button onclick="openModal()" class="text-xs tracking-widest text-white/50 hover:text-white transition">資料請求</button>
+            </nav>
+        </div>
+        <div class="mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="text-xs text-white/30 tracking-widest">&copy; 2026 YUNO HOME Inc. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+// ── Modal ──
+function openModal()  { document.getElementById('modal-overlay').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeModal() { document.getElementById('modal-overlay').classList.remove('open'); document.body.style.overflow = ''; }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+document.getElementById('modal-overlay').addEventListener('click', function(e) { if (e.target === this) closeModal(); });
+
+function showFileName(inputId, labelId) {
+    const f = document.getElementById(inputId);
+    if (f.files && f.files[0]) document.getElementById(labelId).textContent = f.files[0].name;
+}
+
+document.getElementById('request-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    let valid = true;
+    const setError = (fid, eid, cond) => {
+        document.getElementById(fid).classList.toggle('error', cond);
+        document.getElementById(eid).classList.toggle('show', cond);
+        if (cond) valid = false;
+    };
+    setError('f-name','err-name', !document.getElementById('f-name').value.trim());
+    setError('f-kana','err-kana', !document.getElementById('f-kana').value.trim());
+    const em = document.getElementById('f-email').value.trim();
+    setError('f-email','err-email', !em || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em));
+    setError('f-email2','err-email2', em !== document.getElementById('f-email2').value.trim());
+    setError('f-tel','err-tel', !document.getElementById('f-tel').value.trim());
+    const landOk = document.querySelectorAll('input[name="land"]:checked').length > 0;
+    document.getElementById('err-land').classList.toggle('show', !landOk); if (!landOk) valid = false;
+    const fromOk = document.querySelectorAll('input[name="from"]:checked').length > 0;
+    document.getElementById('err-from').classList.toggle('show', !fromOk); if (!fromOk) valid = false;
+    if (!valid) return;
+    document.getElementById('request-form').style.display = 'none';
+    document.getElementById('form-success').classList.add('show');
+});
+
+// ── Mobile menu ──
+document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+});
+document.querySelectorAll('#mobile-menu a, #mobile-menu button').forEach(el => {
+    el.addEventListener('click', () => document.getElementById('mobile-menu').classList.add('hidden'));
+});
+
+// ── Sticky tab highlight ──
+const sections = ['strength','spec','design','flow','aftercare'];
+const tabIds   = ['tab-strength','tab-spec','tab-design','tab-flow','tab-after'];
+const tabObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const idx = sections.indexOf(entry.target.id);
+            if (idx !== -1) {
+                tabIds.forEach((t,i) => document.getElementById(t).classList.toggle('active', i === idx));
+            }
+        }
+    });
+}, { rootMargin: '-30% 0px -60% 0px' });
+sections.forEach(id => { const el = document.getElementById(id); if (el) tabObserver.observe(el); });
+
+// ── Reveal ──
+const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); io.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
