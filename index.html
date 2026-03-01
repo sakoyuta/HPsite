@@ -21,11 +21,11 @@
         :root {
             --color-ink:    #1a1a1a;
             --color-stone:  #4a4540;
-            --color-warm:   #c9a96e;
-            --color-warm-d: #a8874d;
+            --color-warm:   #c8a820;
+            --color-warm-d: #a08500;
             --color-bg:     #faf9f7;
-            --color-bg2:    #f2efe9;
-            --color-line:   #e0d9d0;
+            --color-bg2:    #f5f1df;
+            --color-line:   #e2dcc8;
         }
 
         html { scroll-behavior: smooth; scroll-padding-top: 72px; }
@@ -120,12 +120,12 @@
 
         .btn-primary {
             display:inline-block; padding:1rem 2.5rem;
-            background:var(--color-warm); color:#fff;
+            background:var(--color-warm); color:var(--color-ink);
             font-size:0.8rem; letter-spacing:0.2em;
             font-family:'Noto Sans JP',sans-serif; font-weight:500;
             transition:background 0.3s;
         }
-        .btn-primary:hover { background:var(--color-warm-d); }
+        .btn-primary:hover { background:var(--color-warm-d); color:#fff; }
 
         .btn-outline {
             display:inline-block; padding:1rem 2.5rem;
@@ -179,7 +179,7 @@
         }
         .form-label .req {
             display:inline-block; font-size:0.6rem;
-            background:var(--color-warm); color:#fff;
+            background:var(--color-warm); color:var(--color-ink);
             padding:0.1rem 0.35rem; margin-left:0.4rem;
             vertical-align:middle; letter-spacing:0.05em;
         }
