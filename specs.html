@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品仕様 | 株式会社YUNO HOME</title>
+    <meta name="description" content="YUNO HOMEの標準仕様をご紹介。耐震等級3・断熱等級6（UA値0.46以下）・C値1.0以下を標準装備。構造・断熱・設備・保証まで全項目公開。">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --color-ink:    #1a1a1a;
+            --color-stone:  #4a4540;
+            --color-warm:   #c8a820;
+            --color-warm-d: #a08500;
+            --color-bg:     #faf9f7;
+            --color-bg2:    #f5f1df;
+            --color-line:   #e2dcc8;
+        }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-weight: 400;
+            background-color: var(--color-bg);
+            color: var(--color-ink);
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.8;
+        }
+
+        .font-en { font-family: 'Montserrat', sans-serif; }
+
+        .label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--color-warm);
+            font-weight: 500;
+        }
+
+        .section-en {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+            color: var(--color-ink);
+        }
+
+        /* ─── Header ─── */
+        #header {
+            position: fixed; top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(250,249,247,0.97);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 1px 0 var(--color-line);
+        }
+
+        /* ─── Reveal ─── */
+        .reveal {
+            opacity: 0; transform: translateY(28px);
+            transition: opacity 0.9s cubic-bezier(.22,1,.36,1), transform 0.9s cubic-bezier(.22,1,.36,1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* ─── Buttons ─── */
+        .btn-primary {
+            display: inline-block; padding: 1rem 2.5rem;
+            background: var(--color-warm); color: var(--color-ink);
+            font-size: 0.8rem; letter-spacing: 0.2em;
+            font-family: 'Noto Sans JP', sans-serif; font-weight: 500;
+            transition: background 0.3s, color 0.3s;
+        }
+        .btn-primary:hover { background: var(--color-warm-d); color: #fff; }
+
+        .btn-outline-dark {
+            display: inline-block; padding: 0.9rem 2.2rem;
+            border: 1px solid var(--color-ink); color: var(--color-ink);
+            font-size: 0.75rem; letter-spacing: 0.2em;
+            font-family: 'Noto Sans JP', sans-serif; font-weight: 400;
+            transition: background 0.3s, color 0.3s;
+        }
+        .btn-outline-dark:hover { background: var(--color-ink); color: #fff; }
+
+        .btn-outline-white {
+            display: inline-block; padding: 1rem 2.5rem;
+            border: 1px solid #fff; color: #fff;
+            font-size: 0.8rem; letter-spacing: 0.2em;
+            font-family: 'Noto Sans JP', sans-serif; font-weight: 400;
+            transition: background 0.3s, color 0.3s;
+        }
+        .btn-outline-white:hover { background: #fff; color: var(--color-ink); }
+
+        /* ─── Page Hero ─── */
+        .page-hero {
+            background-image: linear-gradient(135deg, rgba(26,26,26,0.85) 0%, rgba(26,26,26,0.5) 100%),
+                              url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* ─── Tab nav ─── */
+        .tab-btn {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            padding: 0.85rem 1.4rem;
+            border-bottom: 2px solid transparent;
+            color: var(--color-stone);
+            transition: color 0.2s, border-color 0.2s;
+            white-space: nowrap;
+            font-weight: 400;
+        }
+        .tab-btn.active, .tab-btn:hover {
+            color: var(--color-ink);
+            border-bottom-color: var(--color-warm);
+        }
+
+        /* ─── Spec row ─── */
+        .spec-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            border-bottom: 1px solid var(--color-line);
+            align-items: start;
+        }
+        .spec-row:last-child { border-bottom: none; }
+        .spec-label {
+            padding: 1rem 1.2rem;
+            background: var(--color-bg2);
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--color-stone);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        .spec-value {
+            padding: 1rem 1.4rem;
+            font-size: 0.85rem;
+            line-height: 1.7;
+            background: #fff;
+        }
+
+        /* ─── Performance cards ─── */
+        .perf-card {
+            background: #fff;
+            border-top: 3px solid var(--color-warm);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: box-shadow 0.3s;
+        }
+        .perf-card:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.08); }
+        .perf-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--color-warm);
+            line-height: 1;
+        }
+
+        /* ─── Icon circle ─── */
+        .icon-box {
+            width: 56px; height: 56px;
+            background: var(--color-bg2);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem;
+            color: var(--color-warm);
+            flex-shrink: 0;
+        }
+
+        /* ─── Cross-section diagram ─── */
+        .layer-bar {
+            height: 28px;
+            display: flex;
+            align-items: center;
+            padding: 0 1rem;
+            font-size: 0.72rem;
+            font-weight: 500;
+        }
+
+        /* ─── Grade badge ─── */
+        .grade-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.2rem 0.7rem;
+            background: var(--color-warm);
+            color: var(--color-ink);
+            font-size: 0.65rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        /* ─── Tag ─── */
+        .spec-tag {
+            display: inline-block;
+            border: 1px solid var(--color-warm);
+            color: var(--color-warm);
+            font-size: 0.65rem;
+            padding: 0.15rem 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+
+        /* Modal */
+        #modal-overlay {
+            display: none; position: fixed; inset: 0; z-index: 200;
+            background: rgba(26,26,26,0.6); backdrop-filter: blur(4px);
+            overflow-y: auto; padding: 2rem 1rem;
+        }
+        #modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
+        #modal-box { background: #fff; width: 100%; max-width: 760px; margin: auto; }
+        .form-label { display: block; font-size: 0.75rem; letter-spacing: 0.1em; margin-bottom: 0.4rem; color: var(--color-stone); }
+        .form-label .req { display: inline-block; font-size: 0.6rem; background: var(--color-warm); color: var(--color-ink); padding: 0.1rem 0.35rem; margin-left: 0.4rem; vertical-align: middle; }
+        .form-input { width: 100%; border: 1px solid var(--color-line); padding: 0.7rem 0.9rem; font-size: 0.85rem; font-family: 'Noto Sans JP', sans-serif; outline: none; transition: border-color 0.2s; background: #faf9f7; }
+        .form-input:focus { border-color: var(--color-warm); background: #fff; }
+        .form-input.error { border-color: #e53e3e; }
+        .check-group { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; }
+        .check-item { display: flex; align-items: center; gap: 0.4rem; cursor: pointer; font-size: 0.8rem; }
+        .check-item input[type="checkbox"] { accent-color: var(--color-warm); width: 1rem; height: 1rem; }
+        .file-drop { border: 1px dashed var(--color-line); background: #faf9f7; padding: 1.5rem; text-align: center; cursor: pointer; transition: border-color 0.2s; }
+        .file-drop:hover { border-color: var(--color-warm); }
+        .file-drop input[type="file"] { display: none; }
+        .error-msg { font-size: 0.7rem; color: #e53e3e; margin-top: 0.25rem; display: none; }
+        .error-msg.show { display: block; }
+        #form-success { display: none; }
+        #form-success.show { display: flex; }
+
+        #mobile-menu { background: var(--color-bg); border-top: 1px solid var(--color-line); }
+
+        /* ─── Option badge ─── */
+        .opt-badge {
+            font-size: 0.6rem; font-family: 'Montserrat', sans-serif; font-weight: 600;
+            background: var(--color-stone); color: #fff;
+            padding: 0.1rem 0.4rem; letter-spacing: 0.05em; vertical-align: middle; margin-left: 0.3rem;
+        }
+        .std-badge {
+            font-size: 0.6rem; font-family: 'Montserrat', sans-serif; font-weight: 600;
+            background: var(--color-warm); color: var(--color-ink);
+            padding: 0.1rem 0.4rem; letter-spacing: 0.05em; vertical-align: middle; margin-left: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══════ HEADER ══════ -->
+<header id="header" class="py-4 px-6 lg:px-12">
+    <div class="flex justify-between items-center">
+        <a href="index.html" class="font-en tracking-[0.2em] text-xl font-semibold" style="color:var(--color-ink)">YUNO HOME</a>
+        <nav class="hidden md:flex items-center gap-6">
+            <a href="index.html#concept" class="text-xs tracking-[0.2em] text-[var(--color-stone)] hover:text-[var(--color-ink)] transition">家づくり</a>
+            <a href="features.html"      class="text-xs tracking-[0.2em] text-[var(--color-stone)] hover:text-[var(--color-ink)] transition">特徴</a>
+            <a href="specs.html"         class="text-xs tracking-[0.2em] text-[var(--color-ink)] font-medium border-b border-[var(--color-warm)] pb-0.5">商品仕様</a>
+            <a href="index.html#works"   class="text-xs tracking-[0.2em] text-[var(--color-stone)] hover:text-[var(--color-ink)] transition">デザイン</a>
+            <a href="index.html#events"  class="text-xs tracking-[0.2em] text-[var(--color-stone)] hover:text-[var(--color-ink)] transition">イベント</a>
+            <a href="index.html#company" class="text-xs tracking-[0.2em] text-[var(--color-stone)] hover:text-[var(--color-ink)] transition">会社案内</a>
+            <div class="w-px h-4 bg-[var(--color-line)]"></div>
+            <button onclick="openModal()" class="text-xs tracking-[0.15em] px-4 py-2 border border-[var(--color-ink)] text-[var(--color-ink)] hover:bg-[var(--color-ink)] hover:text-white transition">資料請求</button>
+            <a href="index.html#events" class="btn-primary text-xs py-2 px-5">イベント予約</a>
+        </nav>
+        <button id="hamburger" class="md:hidden flex flex-col gap-1.5 p-1">
+            <span class="block w-6 h-px bg-[var(--color-ink)]"></span>
+            <span class="block w-6 h-px bg-[var(--color-ink)]"></span>
+            <span class="block w-4 h-px bg-[var(--color-ink)] ml-auto"></span>
+        </button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden mt-4 -mx-6 px-6 pb-6 pt-4">
+        <div class="flex flex-col gap-1">
+            <a href="index.html#concept" class="py-3 text-sm tracking-widest text-gray-600 border-b border-gray-100">家づくり</a>
+            <a href="features.html"      class="py-3 text-sm tracking-widest text-gray-600 border-b border-gray-100">特徴</a>
+            <a href="specs.html"         class="py-3 text-sm tracking-widest text-[var(--color-warm)] font-medium border-b border-gray-100">商品仕様</a>
+            <a href="index.html#works"   class="py-3 text-sm tracking-widest text-gray-600 border-b border-gray-100">デザイン</a>
+            <a href="index.html#events"  class="py-3 text-sm tracking-widest text-gray-600 border-b border-gray-100">イベント</a>
+            <a href="index.html#company" class="py-3 text-sm tracking-widest text-gray-600 border-b border-gray-100">会社案内</a>
+        </div>
+        <div class="mt-6 flex flex-col gap-3">
+            <a href="index.html#events" class="btn-primary text-center text-xs">イベント予約</a>
+            <button onclick="openModal()" class="btn-outline-dark text-center text-xs w-full">資料請求</button>
+        </div>
+    </div>
+</header>
+
+<!-- ══════ MODAL ══════ -->
+<div id="modal-overlay" role="dialog" aria-modal="true">
+    <div id="modal-box">
+        <div class="bg-[var(--color-ink)] px-8 py-7 flex justify-between items-center">
+            <div>
+                <p class="label text-white/50 mb-1">Document Request</p>
+                <h2 class="text-white text-2xl font-bold">資料請求フォーム</h2>
+            </div>
+            <button onclick="closeModal()" class="text-white/50 hover:text-white transition text-2xl leading-none">&times;</button>
+        </div>
+        <form id="request-form" novalidate class="px-8 py-10 space-y-7">
+            <div class="grid sm:grid-cols-2 gap-5">
+                <div><label class="form-label">氏名<span class="req">必須</span></label><input type="text" id="f-name" class="form-input" placeholder="山田 太郎"><p class="error-msg" id="err-name">氏名を入力してください</p></div>
+                <div><label class="form-label">フリガナ<span class="req">必須</span></label><input type="text" id="f-kana" class="form-input" placeholder="ヤマダ タロウ"><p class="error-msg" id="err-kana">フリガナを入力してください</p></div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-5">
+                <div><label class="form-label">メールアドレス<span class="req">必須</span></label><input type="email" id="f-email" class="form-input" placeholder="example@email.com"><p class="error-msg" id="err-email">正しいメールアドレスを入力してください</p></div>
+                <div><label class="form-label">確認用メールアドレス<span class="req">必須</span></label><input type="email" id="f-email2" class="form-input" placeholder="example@email.com"><p class="error-msg" id="err-email2">メールアドレスが一致しません</p></div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-5">
+                <div><label class="form-label">電話番号<span class="req">必須</span></label><input type="tel" id="f-tel" class="form-input" placeholder="090-0000-0000"><p class="error-msg" id="err-tel">電話番号を入力してください</p></div>
+                <div><label class="form-label">郵便番号</label><input type="text" id="f-zip" class="form-input" placeholder="000-0000"></div>
+            </div>
+            <div><label class="form-label">住所</label><input type="text" id="f-addr" class="form-input" placeholder="埼玉県さいたま市〇〇区〇〇町1-2-3"></div>
+            <hr style="border-color:var(--color-line)">
+            <div>
+                <label class="form-label">建築予定地について<span class="req">必須</span></label>
+                <div class="check-group mt-2">
+                    <label class="check-item"><input type="checkbox" name="land" value="所有・建て替えを検討している"> 所有・建て替えを検討している</label>
+                    <label class="check-item"><input type="checkbox" name="land" value="購入予定地が決定している"> 購入予定地が決定している</label>
+                    <label class="check-item"><input type="checkbox" name="land" value="現在探している"> 現在探している</label>
+                    <label class="check-item"><input type="checkbox" name="land" value="未定"> 未定</label>
+                </div>
+                <p class="error-msg" id="err-land">1つ以上選択してください</p>
+            </div>
+            <div>
+                <label class="form-label">当社を、どちらでお知りになりましたか？<span class="req">必須</span></label>
+                <p class="text-xs text-[var(--color-stone)] mb-2">※複数選択可能です</p>
+                <div class="check-group">
+                    <label class="check-item"><input type="checkbox" name="from" value="Instagram広告"> Instagram広告</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="Facebook広告"> Facebook広告</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="TikTok広告"> TikTok広告</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="その他WEB広告"> その他WEB広告</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="YUNO HOME Instagram"> YUNO HOME Instagram</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="YUNO HOME YouTube"> YUNO HOME YouTube</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="ネット検索"> ネット検索</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="スーモ"> スーモ</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="知人の紹介"> 知人の紹介</label>
+                    <label class="check-item"><input type="checkbox" name="from" value="その他"> その他</label>
+                </div>
+                <p class="error-msg" id="err-from">1つ以上選択してください</p>
+            </div>
+            <hr style="border-color:var(--color-line)">
+            <div class="grid sm:grid-cols-2 gap-5">
+                <div><label class="form-label">添付写真①</label><div class="file-drop" onclick="document.getElementById('f-photo1').click()"><input type="file" id="f-photo1" accept="image/*" onchange="showFileName('f-photo1','drop1-name')"><i class="fas fa-image text-2xl text-[var(--color-line)] mb-2"></i><p class="text-xs text-[var(--color-stone)]">クリックして画像を選択</p><p class="text-xs text-[var(--color-warm)] mt-1" id="drop1-name"></p></div></div>
+                <div><label class="form-label">添付写真②</label><div class="file-drop" onclick="document.getElementById('f-photo2').click()"><input type="file" id="f-photo2" accept="image/*" onchange="showFileName('f-photo2','drop2-name')"><i class="fas fa-image text-2xl text-[var(--color-line)] mb-2"></i><p class="text-xs text-[var(--color-stone)]">クリックして画像を選択</p><p class="text-xs text-[var(--color-warm)] mt-1" id="drop2-name"></p></div></div>
+            </div>
+            <div class="pt-2">
+                <button type="submit" class="btn-primary w-full text-center text-sm py-4 tracking-widest">送信する</button>
+                <p class="text-xs text-[var(--color-stone)] text-center mt-3">ご入力いただいた個人情報は資料請求対応のみに使用します。</p>
+            </div>
+        </form>
+        <div id="form-success" class="px-8 py-20 flex-col items-center justify-center text-center">
+            <div class="w-16 h-16 bg-[var(--color-bg2)] flex items-center justify-center mx-auto mb-6"><i class="fas fa-check text-2xl text-[var(--color-warm)]"></i></div>
+            <p class="label mb-3">Thank you</p>
+            <h3 class="text-2xl font-bold mb-4">送信が完了しました</h3>
+            <p class="text-sm text-[var(--color-stone)] leading-loose mb-8">資料請求ありがとうございます。<br>確認メールをお送りします。数日以内に担当者よりご連絡いたします。</p>
+            <button onclick="closeModal()" class="btn-outline-dark">閉じる</button>
+        </div>
+    </div>
+</div>
+
+<main class="pt-[72px]">
+
+    <!-- ══════ PAGE HERO ══════ -->
+    <section class="page-hero py-24 md:py-36 px-8 md:px-20 flex flex-col justify-end">
+        <nav class="flex items-center gap-2 text-xs text-white/50 mb-8 reveal">
+            <a href="index.html" class="hover:text-white transition">TOP</a>
+            <span>/</span>
+            <span class="text-white">商品仕様</span>
+        </nav>
+        <p class="label text-white/60 mb-4 reveal">Standard Specifications</p>
+        <h1 class="text-white font-bold leading-snug reveal" style="font-size:clamp(1.8rem,4vw,3rem); transition-delay:120ms;">
+            YUNO HOMEの<br>標準仕様
+        </h1>
+        <p class="text-white/60 text-sm tracking-wider mt-4 max-w-xl leading-loose reveal" style="transition-delay:240ms;">
+            性能・安全・快適、すべてを標準でお届けします。<br>
+            どの項目も妥協せず、長く安心して住み続けられる家づくりを実現します。
+        </p>
+    </section>
+
+    <!-- ══════ PERFORMANCE HIGHLIGHTS ══════ -->
+    <section class="py-16 bg-[var(--color-ink)]">
+        <div class="container mx-auto px-6 lg:px-12">
+            <p class="label text-white/40 text-center mb-10 reveal">Key Performance — All Standard</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-white/10">
+                <div class="bg-[var(--color-ink)] p-8 text-center reveal">
+                    <p class="perf-num">3<span class="text-xl font-medium ml-1">等級</span></p>
+                    <p class="text-xs text-white/50 tracking-widest mt-3">耐震等級（最高等級）</p>
+                </div>
+                <div class="bg-[var(--color-ink)] p-8 text-center reveal" style="transition-delay:100ms;">
+                    <p class="perf-num">6<span class="text-xl font-medium ml-1">等級</span></p>
+                    <p class="text-xs text-white/50 tracking-widest mt-3">断熱等性能等級</p>
+                </div>
+                <div class="bg-[var(--color-ink)] p-8 text-center reveal" style="transition-delay:200ms;">
+                    <p class="label text-white/40 mb-1">UA値</p>
+                    <p class="perf-num">0.46<span class="text-xl font-medium">以下</span></p>
+                    <p class="text-xs text-white/50 tracking-widest mt-3">外皮平均熱貫流率</p>
+                </div>
+                <div class="bg-[var(--color-ink)] p-8 text-center reveal" style="transition-delay:300ms;">
+                    <p class="label text-white/40 mb-1">C値</p>
+                    <p class="perf-num">1.0<span class="text-xl font-medium">以下</span></p>
+                    <p class="text-xs text-white/50 tracking-widest mt-3">相当隙間面積</p>
+                </div>
+            </div>
+            <p class="text-xs text-white/30 text-center mt-4 tracking-widest reveal">※すべて標準仕様です。オプションではありません。</p>
+        </div>
+    </section>
+
+    <!-- ══════ TAB NAV ══════ -->
+    <nav class="sticky top-[72px] z-50 bg-white border-b border-[var(--color-line)] overflow-x-auto">
+        <div class="flex min-w-max px-6 md:justify-center">
+            <a href="#structure"  class="tab-btn active" id="t-structure">構造・耐震</a>
+            <a href="#insulation" class="tab-btn" id="t-insulation">断熱・気密</a>
+            <a href="#opening"    class="tab-btn" id="t-opening">開口部</a>
+            <a href="#exterior"   class="tab-btn" id="t-exterior">外装</a>
+            <a href="#interior"   class="tab-btn" id="t-interior">内装・設備</a>
+            <a href="#warranty"   class="tab-btn" id="t-warranty">保証・アフター</a>
+        </div>
+    </nav>
+
+    <!-- ══════ 01 構造・耐震 ══════ -->
+    <section id="structure" class="py-20 bg-[var(--color-bg)]">
+        <div class="container mx-auto px-6 lg:px-16">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal">
+                <div>
+                    <p class="label mb-3">01 — Structure</p>
+                    <h2 class="section-en">構造・耐震</h2>
+                </div>
+                <p class="text-xs text-[var(--color-stone)] tracking-widest mt-4 md:mt-0">
+                    <span class="grade-badge">耐震等級 3</span>　最高等級を標準装備
+                </p>
+            </div>
+
+            <!-- Feature icons -->
+            <div class="grid md:grid-cols-3 gap-6 mb-14">
+                <div class="bg-white p-6 flex gap-5 items-start reveal">
+                    <div class="icon-box"><i class="fas fa-home"></i></div>
+                    <div>
+                        <h4 class="font-bold text-sm mb-1">木造軸組工法（在来工法）</h4>
+                        <p class="text-xs text-[var(--color-stone)] leading-relaxed">日本の気候風土に合った伝統工法をベースに、現代の金物補強技術を組み合わせた高剛性構造。間取りの自由度も最大限確保します。</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 flex gap-5 items-start reveal" style="transition-delay:100ms;">
+                    <div class="icon-box"><i class="fas fa-shield-alt"></i></div>
+                    <div>
+                        <h4 class="font-bold text-sm mb-1">剛床工法</h4>
+                        <p class="text-xs text-[var(--color-stone)] leading-relaxed">厚さ28mmの構造用合板を床全面に貼る剛床工法で、水平構面の剛性を大幅に向上。地震時の揺れを建物全体で受け止めます。</p>
+                    </div>
+                </div>
+                <div class="bg-white p-6 flex gap-5 items-start reveal" style="transition-delay:200ms;">
+                    <div class="icon-box"><i class="fas fa-drafting-compass"></i></div>
+                    <div>
+                        <h4 class="font-bold text-sm mb-1">許容応力度計算（構造計算）</h4>
+                        <p class="text-xs text-[var(--color-stone)] leading-relaxed">すべての物件で構造計算を実施。感覚ではなく数値で安全性を担保し、耐震等級3を確実に達成します。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spec table -->
+            <div class="bg-white border border-[var(--color-line)] reveal">
+                <div class="px-6 py-4 bg-[var(--color-ink)] flex items-center gap-3">
+                    <i class="fas fa-list text-[var(--color-warm)] text-sm"></i>
+                    <span class="text-white text-sm font-medium tracking-widest">構造仕様一覧</span>
+                </div>
+                <div class="divide-y divide-[var(--color-line)]">
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>構造工法</div><div class="spec-value">木造軸組工法（在来工法）＋ 構造用金物補強</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>耐震等級</div><div class="spec-value"><span class="grade-badge">耐震等級 3</span>（最高等級）　※許容応力度計算による</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>基礎</div><div class="spec-value">べた基礎（ダブル配筋）　コンクリート強度：24N/mm²</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>土台</div><div class="spec-value">桧（ひのき）105mm角　防腐・防蟻処理済み</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>通し柱・管柱</div><div class="spec-value">4寸柱（120mm角）　ホワイトウッド集成材　E120-F330</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>横架材（梁・桁）</div><div class="spec-value">集成材（構造計算に基づくサイズ設定）</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>床組み</div><div class="spec-value">剛床工法　構造用合板28mm　釘ピッチ150mm</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>耐力壁</div><div class="spec-value">構造用面材（ダイライトMS）＋ 筋交い併用　壁倍率5.0倍</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>金物接合</div><div class="spec-value">N値計算に基づくホールダウン金物・筋交い金物を使用</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>地盤調査</div><div class="spec-value">スウェーデン式サウンディング試験（全棟実施）</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ 02 断熱・気密 ══════ -->
+    <section id="insulation" class="py-20 bg-[var(--color-bg2)]">
+        <div class="container mx-auto px-6 lg:px-16">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 reveal">
+                <div>
+                    <p class="label mb-3">02 — Insulation</p>
+                    <h2 class="section-en">断熱・気密</h2>
+                </div>
+                <p class="text-xs text-[var(--color-stone)] tracking-widest mt-4 md:mt-0">
+                    <span class="grade-badge">断熱等級 6</span>　UA値 0.46以下 / C値 1.0以下
+                </p>
+            </div>
+
+            <!-- 断熱レイヤー図解 -->
+            <div class="bg-white p-8 mb-10 reveal">
+                <p class="text-sm font-bold mb-6 text-center tracking-widest">断熱部位別 仕様図</p>
+                <div class="max-w-2xl mx-auto space-y-2">
+                    <div class="layer-bar text-white font-medium" style="background:#2d6a4f;">
+                        <i class="fas fa-sun mr-3"></i>屋根断熱　— 吹付硬質ウレタンフォーム 200mm（熱抵抗値 R = 5.5m²K/W）
+                    </div>
+                    <div class="layer-bar text-white font-medium" style="background:#40916c;">
+                        <i class="fas fa-building mr-3"></i>外壁断熱　— 吹付硬質ウレタンフォーム 90mm（熱抵抗値 R = 2.5m²K/W）
+                    </div>
+                    <div class="layer-bar font-medium" style="background:#d8f3dc; color:#1b4332;">
+                        <i class="fas fa-layer-group mr-3"></i>床断熱　　— 押出法ポリスチレンフォーム 65mm（熱抵抗値 R = 2.3m²K/W）
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-[var(--color-line)] text-xs text-[var(--color-stone)] text-center leading-loose">
+                        ※ 全部位で連続断熱を実現。隙間からの熱損失を最小化します。
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border border-[var(--color-line)] reveal">
+                <div class="px-6 py-4 bg-[var(--color-ink)] flex items-center gap-3">
+                    <i class="fas fa-list text-[var(--color-warm)] text-sm"></i>
+                    <span class="text-white text-sm font-medium tracking-widest">断熱・気密仕様一覧</span>
+                </div>
+                <div class="divide-y divide-[var(--color-line)]">
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>断熱工法</div><div class="spec-value">吹付硬質ウレタンフォーム（現場発泡工法）　連続断熱</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>断熱等性能等級</div><div class="spec-value"><span class="grade-badge">等級 6</span>　（ZEH基準に対応）</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>UA値（外皮平均熱貫流率）</div><div class="spec-value"><strong>0.46 W/m²K 以下</strong>　（埼玉県：6地域基準0.60以下を大きく上回る）</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>C値（相当隙間面積）</div><div class="spec-value"><strong>1.0 cm²/m² 以下</strong>　※全棟気密測定実施</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>屋根断熱</div><div class="spec-value">吹付硬質ウレタンフォーム 200mm</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>外壁断熱</div><div class="spec-value">吹付硬質ウレタンフォーム 90mm　（充填断熱）</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>床断熱</div><div class="spec-value">押出法ポリスチレンフォーム 65mm　（基礎断熱オプションあり）</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>防湿気密シート</div><div class="spec-value">JIS A 6930適合品　全面施工</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>換気システム</div><div class="spec-value">24時間換気システム（第三種換気）　シックハウス対策法適合</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ 03 開口部 ══════ -->
+    <section id="opening" class="py-20 bg-[var(--color-bg)]">
+        <div class="container mx-auto px-6 lg:px-16">
+            <div class="mb-12 reveal">
+                <p class="label mb-3">03 — Windows & Doors</p>
+                <h2 class="section-en">開口部</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 mb-10">
+                <div class="bg-white p-6 reveal">
+                    <div class="icon-box mb-4"><i class="fas fa-border-all"></i></div>
+                    <h4 class="font-bold text-sm mb-2">アルミ樹脂複合サッシ</h4>
+                    <p class="text-xs text-[var(--color-stone)] leading-relaxed">室内側に断熱性の高い樹脂、室外側にメンテナンス性の高いアルミを採用。結露を大幅に抑制します。</p>
+                </div>
+                <div class="bg-white p-6 reveal" style="transition-delay:100ms;">
+                    <div class="icon-box mb-4"><i class="fas fa-sun"></i></div>
+                    <h4 class="font-bold text-sm mb-2">Low-E複層ガラス</h4>
+                    <p class="text-xs text-[var(--color-stone)] leading-relaxed">低放射（Low-E）コーティングとアルゴンガス封入で、熱の出入りを最小化。冷暖房費の削減に貢献します。</p>
+                </div>
+                <div class="bg-white p-6 reveal" style="transition-delay:200ms;">
+                    <div class="icon-box mb-4"><i class="fas fa-door-open"></i></div>
+                    <h4 class="font-bold text-sm mb-2">高断熱玄関ドア</h4>
+                    <p class="text-xs text-[var(--color-stone)] leading-relaxed">玄関ドアも断熱性能を重視。ウレタンフォームを内蔵した高断熱タイプを標準採用し、玄関からの熱損失を防ぎます。</p>
+                </div>
+            </div>
+            <div class="bg-white border border-[var(--color-line)] reveal">
+                <div class="px-6 py-4 bg-[var(--color-ink)] flex items-center gap-3">
+                    <i class="fas fa-list text-[var(--color-warm)] text-sm"></i>
+                    <span class="text-white text-sm font-medium tracking-widest">開口部仕様一覧</span>
+                </div>
+                <div class="divide-y divide-[var(--color-line)]">
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>サッシ</div><div class="spec-value">アルミ樹脂複合サッシ（LIXIL サーモスII H または同等品）</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>ガラス</div><div class="spec-value">Low-E複層ガラス（アルゴンガス入り）　熱貫流率 U=1.6 W/m²K</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>玄関ドア</div><div class="spec-value">高断熱玄関ドア（LIXIL ジエスタ２ または同等品）　断熱性能 k4相当</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>窓ロック</div><div class="spec-value">クレセント錠＋補助錠　防犯ガラス（1階窓：オプション）</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>雨戸・シャッター</div><div class="spec-value">電動シャッター <span class="opt-badge">OPTION</span></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ 04 外装 ══════ -->
+    <section id="exterior" class="py-20 bg-[var(--color-bg2)]">
+        <div class="container mx-auto px-6 lg:px-16">
+            <div class="mb-12 reveal">
+                <p class="label mb-3">04 — Exterior</p>
+                <h2 class="section-en">外装</h2>
+            </div>
+            <div class="bg-white border border-[var(--color-line)] reveal mb-8">
+                <div class="px-6 py-4 bg-[var(--color-ink)] flex items-center gap-3">
+                    <i class="fas fa-list text-[var(--color-warm)] text-sm"></i>
+                    <span class="text-white text-sm font-medium tracking-widest">外装仕様一覧</span>
+                </div>
+                <div class="divide-y divide-[var(--color-line)]">
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>外壁材</div>
+                        <div class="spec-value">
+                            <p class="mb-1">窯業系サイディング 厚さ16mm <span class="std-badge">STANDARD</span></p>
+                            <p class="text-xs text-[var(--color-stone)]">塗り壁（ジョリパット・モルタル） <span class="opt-badge">OPTION</span> / 金属サイディング <span class="opt-badge">OPTION</span></p>
+                        </div>
+                    </div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>屋根材</div>
+                        <div class="spec-value">
+                            <p class="mb-1">ガルバリウム鋼板（縦葺き・横葺き） <span class="std-badge">STANDARD</span></p>
+                            <p class="text-xs text-[var(--color-stone)]">スレート（コロニアルグラッサ） <span class="opt-badge">OPTION</span> / 瓦 <span class="opt-badge">OPTION</span></p>
+                        </div>
+                    </div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>軒天</div><div class="spec-value">ケイカル板（塗装仕上げ）</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>雨樋</div><div class="spec-value">硬質塩化ビニール製（丸型・角型より選択）</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>透湿防水シート</div><div class="spec-value">タイベックシルバー（遮熱・防水・透湿　3機能対応）</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>外壁通気層</div><div class="spec-value">18mm通気胴縁施工（壁体内結露防止）</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>バルコニー防水</div><div class="spec-value">FRP防水（ガラスマット2プライ）　保証10年</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ 05 内装・設備 ══════ -->
+    <section id="interior" class="py-20 bg-[var(--color-bg)]">
+        <div class="container mx-auto px-6 lg:px-16">
+            <div class="mb-12 reveal">
+                <p class="label mb-3">05 — Interior & Equipment</p>
+                <h2 class="section-en">内装・設備</h2>
+                <p class="text-sm text-[var(--color-stone)] mt-3">主要設備はLIXIL・TOTO・クリナップ・タカラスタンダードなど有名メーカーより選択いただけます。</p>
+            </div>
+
+            <!-- 内装 -->
+            <div class="bg-white border border-[var(--color-line)] mb-6 reveal">
+                <div class="px-6 py-4 bg-[var(--color-stone)] flex items-center gap-3">
+                    <i class="fas fa-couch text-[var(--color-warm)] text-sm"></i>
+                    <span class="text-white text-sm font-medium tracking-widest">内装仕様</span>
+                </div>
+                <div class="divide-y divide-[var(--color-line)]">
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>床材（リビング・居室）</div>
+                        <div class="spec-value">
+                            <p class="mb-1">複合フローリング（厚さ12mm・突き板仕上げ） <span class="std-badge">STANDARD</span></p>
+                            <p class="text-xs text-[var(--color-stone)]">無垢フローリング <span class="opt-badge">OPTION</span> / タイル・モルタル仕上げ <span class="opt-badge">OPTION</span></p>
+                        </div>
+                    </div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>床材（水回り）</div><div class="spec-value">クッションフロア または フロアタイル</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>壁・天井仕上げ</div>
+                        <div class="spec-value">
+                            <p class="mb-1">ビニールクロス（塗装下地対応） <span class="std-badge">STANDARD</span></p>
+                            <p class="text-xs text-[var(--color-stone)]">珪藻土塗り壁 <span class="opt-badge">OPTION</span> / 漆喰 <span class="opt-badge">OPTION</span> / エコカラット <span class="opt-badge">OPTION</span></p>
+                        </div>
+                    </div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>天井高</div><div class="spec-value">1階：2,450mm　2階：2,400mm（吹き抜け・勾配天井はご相談）</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>階段</div><div class="spec-value">木製直線階段（踏板・蹴込板）　オープン階段 <span class="opt-badge">OPTION</span></div></div>
+                </div>
+            </div>
+
+            <!-- キッチン -->
+            <div class="bg-white border border-[var(--color-line)] mb-6 reveal">
+                <div class="px-6 py-4 bg-[var(--color-stone)] flex items-center gap-3">
+                    <i class="fas fa-utensils text-[var(--color-warm)] text-sm"></i>
+                    <span class="text-white text-sm font-medium tracking-widest">キッチン</span>
+                </div>
+                <div class="divide-y divide-[var(--color-line)]">
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>メーカー</div><div class="spec-value">LIXIL / TOTO / クリナップ / タカラスタンダード　より選択</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>タイプ</div><div class="spec-value">システムキッチン（対面・壁付け・アイランド　より選択）</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>サイズ</div><div class="spec-value">2,550mm（W）標準　/ 2,700・3,000mm <span class="opt-badge">OPTION</span></div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>コンロ</div><div class="spec-value">IHクッキングヒーター または ガスコンロ　より選択</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>食洗機</div><div class="spec-value">フロントオープン式ビルトイン食洗機 <span class="opt-badge">OPTION</span></div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>浄水器</div><div class="spec-value">ビルトイン浄水器 <span class="opt-badge">OPTION</span></div></div>
+                </div>
+            </div>
+
+            <!-- 浴室・トイレ・洗面 -->
+            <div class="bg-white border border-[var(--color-line)] mb-6 reveal">
+                <div class="px-6 py-4 bg-[var(--color-stone)] flex items-center gap-3">
+                    <i class="fas fa-bath text-[var(--color-warm)] text-sm"></i>
+                    <span class="text-white text-sm font-medium tracking-widest">浴室・トイレ・洗面</span>
+                </div>
+                <div class="divide-y divide-[var(--color-line)]">
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>浴室</div><div class="spec-value">システムユニットバス　1616サイズ以上　LIXIL / TOTO / タカラスタンダード より選択</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>浴室機能</div><div class="spec-value">追い焚き機能付き・浴室乾燥機・節水シャワーヘッド</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>トイレ</div><div class="spec-value">温水洗浄便座付き一体型トイレ　TOTO / LIXIL より選択　（全室）</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>洗面台</div><div class="spec-value">洗面化粧台（W750mm以上）　三面鏡収納付き　LIXIL / TOTO / タカラスタンダード より選択</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>給湯</div><div class="spec-value">エコジョーズ（都市ガス・プロパン）または エコキュート（電気）より選択</div></div>
+                </div>
+            </div>
+
+            <!-- 電気・その他 -->
+            <div class="bg-white border border-[var(--color-line)] reveal">
+                <div class="px-6 py-4 bg-[var(--color-stone)] flex items-center gap-3">
+                    <i class="fas fa-bolt text-[var(--color-warm)] text-sm"></i>
+                    <span class="text-white text-sm font-medium tracking-widest">電気・その他設備</span>
+                </div>
+                <div class="divide-y divide-[var(--color-line)]">
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>電気容量</div><div class="spec-value">単相3線式200V　60A（スマートメーター対応）</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>照明</div><div class="spec-value">LEDダウンライト（主要居室）　照明計画はご提案のうえ選択</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>コンセント・スイッチ</div><div class="spec-value">パナソニック　コスモシリーズワイド21 または 同等品</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>インターネット配管</div><div class="spec-value">光ファイバー引き込み配管（CD管）各居室に空配管</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>TV・電話配管</div><div class="spec-value">テレビアンテナ配管・電話配管（各居室）</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>太陽光発電</div><div class="spec-value">太陽光発電システム（蓄電池セット） <span class="opt-badge">OPTION</span></div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>床暖房</div><div class="spec-value">電気式床暖房 <span class="opt-badge">OPTION</span> / 温水式床暖房 <span class="opt-badge">OPTION</span></div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>宅配ボックス</div><div class="spec-value">宅配ボックス <span class="opt-badge">OPTION</span></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ 06 保証・アフター ══════ -->
+    <section id="warranty" class="py-20 bg-[var(--color-bg2)]">
+        <div class="container mx-auto px-6 lg:px-16">
+            <div class="mb-12 reveal">
+                <p class="label mb-3">06 — Warranty & After Service</p>
+                <h2 class="section-en">保証・アフター</h2>
+            </div>
+
+            <!-- 保証期間 timeline -->
+            <div class="bg-[var(--color-ink)] p-8 md:p-12 mb-10 reveal">
+                <p class="label text-white/40 mb-8 text-center">Warranty Timeline</p>
+                <div class="relative">
+                    <!-- Timeline bar -->
+                    <div class="absolute top-6 left-0 right-0 h-px bg-white/20"></div>
+                    <div class="grid grid-cols-4 gap-4 relative">
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-[var(--color-warm)] flex items-center justify-center mx-auto mb-3 relative z-10">
+                                <span class="font-en font-bold text-[var(--color-ink)] text-sm">1Y</span>
+                            </div>
+                            <p class="text-white text-xs font-medium mb-1">引渡し後 1年</p>
+                            <p class="text-white/50 text-xs leading-relaxed">全体点検<br>設備動作確認</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-[var(--color-warm)] flex items-center justify-center mx-auto mb-3 relative z-10">
+                                <span class="font-en font-bold text-[var(--color-ink)] text-sm">3Y</span>
+                            </div>
+                            <p class="text-white text-xs font-medium mb-1">引渡し後 3年</p>
+                            <p class="text-white/50 text-xs leading-relaxed">外壁・屋根<br>コーキング確認</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-[var(--color-warm)] flex items-center justify-center mx-auto mb-3 relative z-10">
+                                <span class="font-en font-bold text-[var(--color-ink)] text-sm">5Y</span>
+                            </div>
+                            <p class="text-white text-xs font-medium mb-1">引渡し後 5年</p>
+                            <p class="text-white/50 text-xs leading-relaxed">構造体確認<br>防水点検</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-12 h-12 border-2 border-[var(--color-warm)] flex items-center justify-center mx-auto mb-3 relative z-10">
+                                <span class="font-en font-bold text-[var(--color-warm)] text-sm">10Y</span>
+                            </div>
+                            <p class="text-white text-xs font-medium mb-1">引渡し後 10年</p>
+                            <p class="text-white/50 text-xs leading-relaxed">長期保証点検<br>リノベ相談</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border border-[var(--color-line)] reveal">
+                <div class="px-6 py-4 bg-[var(--color-ink)] flex items-center gap-3">
+                    <i class="fas fa-list text-[var(--color-warm)] text-sm"></i>
+                    <span class="text-white text-sm font-medium tracking-widest">保証・アフターサービス一覧</span>
+                </div>
+                <div class="divide-y divide-[var(--color-line)]">
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>住宅瑕疵担保保険</div><div class="spec-value">加入必須（構造耐力上主要な部分・雨水の浸入を防止する部分：10年保証）<br><span class="text-xs text-[var(--color-stone)]">※住宅瑕疵担保履行法に基づく</span></div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>地盤保証</div><div class="spec-value">地盤調査・地盤改良後の地盤保証（最大20年）　地盤保証会社による</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>防蟻保証</div><div class="spec-value">施工後5年　再施工時延長可</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>バルコニー防水保証</div><div class="spec-value">FRP防水 10年</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>定期点検</div><div class="spec-value">引渡し後 1年・3年・5年・10年（無償）</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>駆けつけ対応</div><div class="spec-value">緊急時は施工担当者が直接対応　専用連絡先をお伝えします</div></div>
+                    <div class="spec-row"><div class="spec-label"><i class="fas fa-circle text-[var(--color-warm)] text-xs mt-1"></i>リフォーム対応</div><div class="spec-value">増改築・リノベーションのご相談も一貫して対応</div></div>
+                </div>
+            </div>
+
+            <!-- 注釈 -->
+            <div class="mt-6 p-4 bg-white border border-[var(--color-line)] reveal">
+                <p class="text-xs text-[var(--color-stone)] leading-loose">
+                    ※ 本ページに記載の仕様は2026年4月時点の標準仕様です。仕様は予告なく変更する場合があります。<br>
+                    ※ <span class="std-badge">STANDARD</span> は標準仕様、<span class="opt-badge">OPTION</span> はオプション（別途費用）です。<br>
+                    ※ 詳細はお打ち合わせの際にご確認ください。ご不明な点はお気軽にお問い合わせください。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════ CTA ══════ -->
+    <section class="py-24 bg-[var(--color-ink)] relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2070&auto=format&fit=crop');background-size:cover;background-position:center;"></div>
+        <div class="container mx-auto px-6 text-center relative z-10 reveal">
+            <p class="label text-white/50 mb-5">Get More Information</p>
+            <h2 class="text-white text-3xl md:text-4xl font-bold mb-4">仕様の詳細はカタログで。</h2>
+            <p class="text-white/50 text-sm tracking-widest mb-10 leading-loose">
+                詳細な仕様書・カタログを無料でお送りします。<br>
+                お打ち合わせでは、お客様のご要望に合わせてご提案します。
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <button onclick="openModal()" class="btn-primary">カタログ・資料請求</button>
+                <a href="index.html#events" class="btn-outline-white">無料相談会に申し込む</a>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ══════ FOOTER ══════ -->
+<footer class="bg-[#111] text-white">
+    <div class="container mx-auto px-6 lg:px-12 py-16">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-10">
+            <div>
+                <p class="font-en text-2xl tracking-[0.25em] font-semibold mb-3">YUNO HOME</p>
+                <p class="text-xs text-white/40 tracking-widest leading-relaxed">株式会社YUNO HOME<br>〒XXX-XXXX 埼玉県さいたま市（予定）</p>
+            </div>
+            <nav class="flex flex-wrap gap-x-8 gap-y-3">
+                <a href="index.html"         class="text-xs tracking-widest text-white/50 hover:text-white transition">TOP</a>
+                <a href="features.html"      class="text-xs tracking-widest text-white/50 hover:text-white transition">特徴</a>
+                <a href="specs.html"         class="text-xs tracking-widest text-white   hover:text-white transition">商品仕様</a>
+                <a href="index.html#works"   class="text-xs tracking-widest text-white/50 hover:text-white transition">デザイン</a>
+                <a href="index.html#events"  class="text-xs tracking-widest text-white/50 hover:text-white transition">イベント</a>
+                <a href="index.html#company" class="text-xs tracking-widest text-white/50 hover:text-white transition">会社案内</a>
+                <button onclick="openModal()" class="text-xs tracking-widest text-white/50 hover:text-white transition">資料請求</button>
+            </nav>
+        </div>
+        <div class="mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="text-xs text-white/30 tracking-widest">&copy; 2026 YUNO HOME Inc. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+// ── Modal ──
+function openModal()  { document.getElementById('modal-overlay').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeModal() { document.getElementById('modal-overlay').classList.remove('open'); document.body.style.overflow=''; }
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+document.getElementById('modal-overlay').addEventListener('click', function(e){ if(e.target===this) closeModal(); });
+
+function showFileName(inputId, labelId) {
+    const f=document.getElementById(inputId);
+    if(f.files&&f.files[0]) document.getElementById(labelId).textContent=f.files[0].name;
+}
+
+document.getElementById('request-form').addEventListener('submit', function(e) {
+    e.preventDefault(); let valid=true;
+    const se=(fid,eid,cond)=>{ document.getElementById(fid).classList.toggle('error',cond); document.getElementById(eid).classList.toggle('show',cond); if(cond) valid=false; };
+    se('f-name','err-name',!document.getElementById('f-name').value.trim());
+    se('f-kana','err-kana',!document.getElementById('f-kana').value.trim());
+    const em=document.getElementById('f-email').value.trim();
+    se('f-email','err-email',!em||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em));
+    se('f-email2','err-email2',em!==document.getElementById('f-email2').value.trim());
+    se('f-tel','err-tel',!document.getElementById('f-tel').value.trim());
+    const lOk=document.querySelectorAll('input[name="land"]:checked').length>0;
+    document.getElementById('err-land').classList.toggle('show',!lOk); if(!lOk) valid=false;
+    const fOk=document.querySelectorAll('input[name="from"]:checked').length>0;
+    document.getElementById('err-from').classList.toggle('show',!fOk); if(!fOk) valid=false;
+    if(!valid) return;
+    document.getElementById('request-form').style.display='none';
+    document.getElementById('form-success').classList.add('show');
+});
+
+// ── Mobile menu ──
+document.getElementById('hamburger').addEventListener('click',()=>{ document.getElementById('mobile-menu').classList.toggle('hidden'); });
+document.querySelectorAll('#mobile-menu a,#mobile-menu button').forEach(el=>{ el.addEventListener('click',()=>document.getElementById('mobile-menu').classList.add('hidden')); });
+
+// ── Sticky tab highlight ──
+const secs=['structure','insulation','opening','exterior','interior','warranty'];
+const tabs=['t-structure','t-insulation','t-opening','t-exterior','t-interior','t-warranty'];
+new IntersectionObserver(entries=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ const i=secs.indexOf(e.target.id); if(i>-1) tabs.forEach((t,j)=>document.getElementById(t).classList.toggle('active',i===j)); }});
+},{rootMargin:'-30% 0px -60% 0px'}).observe && secs.forEach(id=>{ const el=document.getElementById(id); if(el) new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting){ const i=secs.indexOf(e.target.id); if(i>-1) tabs.forEach((t,j)=>document.getElementById(t).classList.toggle('active',i===j)); }}); },{rootMargin:'-30% 0px -60% 0px'}).observe(el); });
+
+// ── Reveal ──
+new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('active');} }); },{threshold:0.08}).observe && document.querySelectorAll('.reveal').forEach(el=>{ new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('active');} }); },{threshold:0.08}).observe(el); });
+</script>
+</body>
+</html>
